@@ -73,7 +73,4 @@ Report Issues & Contribute
 - Please use the repository to report issues or open PRs: https://github.com/AhmadRob/sentient_ui
 - For quick fixes, run a local static server and validate the pages in Chrome/Firefox/Safari.
 
-If you'd like, I can also:
-- Add a small CONTRIBUTING.md with a reproduction checklist and branch/PR workflow.
-- Add Playwright tests that run in CI and smoke-test the key interactions (open modal, play video, seek, open paper, download PDF).
 
