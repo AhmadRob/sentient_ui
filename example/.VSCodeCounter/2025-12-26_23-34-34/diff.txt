@@ -1,0 +1,37 @@
+Date : 2025-12-26 23:34:34
+Directory : d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui
+Total : 7 files,  152 codes, 31 comments, 54 blanks, all 237 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Markdown |          2 |         86 |          0 |         40 |        126 |
+| YAML     |          3 |         36 |         31 |         10 |         77 |
+| JSON     |          1 |         24 |          0 |          0 |         24 |
+| Dart     |          1 |          6 |          0 |          4 |         10 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                             | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                |          7 |        152 |         31 |         54 |        237 |
+| . (Files)                                                                                                        |          5 |        122 |         31 |         50 |        203 |
+| assets                                                                                                           |          1 |         24 |          0 |          0 |         24 |
+| test                                                                                                             |          1 |          6 |          0 |          4 |         10 |
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                         | language | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\CHANGELOG.md               | Markdown |          2 |          0 |          2 |          4 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\README.md                  | Markdown |         84 |          0 |         38 |        122 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\analysis_options.yaml      | YAML     |          1 |          2 |          2 |          5 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\assets\config.json         | JSON     |         24 |          0 |          0 |         24 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\devtools_options.yaml      | YAML     |          4 |          0 |          0 |          4 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\pubspec.yaml               | YAML     |         31 |         29 |          8 |         68 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\test\sentient_ui_test.dart | Dart     |          6 |          0 |          4 |         10 |
+| Total                                                                                                            |          |        152 |         31 |         54 |        237 |
++------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

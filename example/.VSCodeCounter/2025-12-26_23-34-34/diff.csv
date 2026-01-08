@@ -1,0 +1,9 @@
+"filename", "language", "YAML", "Dart", "Markdown", "JSON", "comment", "blank", "total"
+"d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\CHANGELOG.md", "Markdown", 0, 0, 2, 0, 0, 2, 4
+"d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\README.md", "Markdown", 0, 0, 84, 0, 0, 38, 122
+"d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\analysis_options.yaml", "YAML", 1, 0, 0, 0, 2, 2, 5
+"d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\assets\config.json", "JSON", 0, 0, 0, 24, 0, 0, 24
+"d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\devtools_options.yaml", "YAML", 4, 0, 0, 0, 0, 0, 4
+"d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\pubspec.yaml", "YAML", 31, 0, 0, 0, 29, 8, 68
+"d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\test\sentient_ui_test.dart", "Dart", 0, 6, 0, 0, 0, 4, 10
+"Total", "-", 36, 6, 86, 24, 31, 54, 237

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentient UI | Documentation</title>
+    <!-- Favicon setup -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico">
+    <meta name="theme-color" content="#161616">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkGray: '#161616',
+                        midGray: '#b7b7b7',
+                        softWhite: '#f0f0f0',
+                        pureBlack: '#020202',
+                        pubBlue: '#0175c2',
+                        pubBlueLight: '#0197f6',
+                        pubBlueDark: '#01579b',
+                    },
+                    fontFamily: {
+                        header: ['Playfair Display', 'serif'],
+                        body: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            background-color: #f0f0f0; 
+            color: #161616; 
+            overflow-x: hidden;
+            cursor: default;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        /* Subtle glass overlay on body */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+        }
+        
+        /* Coming Soon Animation - FIXED */
+        .coming-soon-text {
+            background: linear-gradient(
+                90deg,
+                #161616 0%,
+                #b7b7b7 25%,
+                #161616 50%,
+                #b7b7b7 75%,
+                #161616 100%
+            );
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+            padding-bottom: 0.15em;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 200% center; }
+            100% { background-position: -200% center; }
+        }
+        
+        /* Glass Button */
+        .glass-button {
+            background: rgba(22, 22, 22, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        
+        .glass-button:hover {
+            background: rgba(2, 2, 2, 1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Progress Bar */
+        .docs-progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(22, 22, 22, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .docs-progress-fill {
+            position: absolute;
+            height: 100%;
+            background: linear-gradient(90deg, #0175c2, #0197f6);
+            border-radius: 3px;
+            animation: progress-animation 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes progress-animation {
+            0% { width: 65%; left: 0%; }
+            100% { width: 70%; left: 30%; }
+        }
+        
+        /* Status Badge */
+        .status-badge {
+            background: linear-gradient(135deg, #0175c2, #0197f6);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(1, 151, 246, 0.3);
+        }
+        
+        /* Countdown Item */
+        .countdown-item {
+            background: rgba(22, 22, 22, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            min-width: 110px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Doc Card */
+        .doc-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .doc-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(1, 151, 246, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Form Input */
+        .email-input {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .email-input::placeholder {
+            color: rgba(240, 240, 240, 0.7);
+        }
+        
+        .email-input:focus {
+            border-color: rgba(1, 151, 246, 0.8);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(1, 151, 246, 0.1);
+        }
+        
+        /* Footer */
+        .docs-footer {
+            background: linear-gradient(180deg, rgba(2, 2, 2, 0.95), rgba(22, 22, 22, 0.98));
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Navigation Bar */
+        .docs-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-link {
+            position: relative;
+            padding: 8px 16px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 80%;
+            height: 2px;
+            background: #161616;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+        
+        .nav-link.active {
+            color: #0175c2;
+        }
+        
+        .nav-link.active::after {
+            background: #0175c2;
+            transform: translateX(-50%) scaleX(1);
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Selection Color */
+        ::selection {
+            background-color: #FFD93D;
+            color: #161616;
+        }
+        
+        ::-moz-selection {
+            background-color: #FFD93D;
+            color: #161616;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(1, 151, 246, 0.3);
+            border-radius: 5px;
+            border: 2px solid rgba(0, 0, 0, 0);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(1, 151, 246, 0.5);
+        }
+        
+        /* Infinity Loop Animation */
+        .infinity-loop {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 5s infinite ease-in-out;
+        }
+        
+        @keyframes draw {
+            0% { stroke-dashoffset: 1000; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -1000; }
+        }
+    </style>
+</head>
+<body class="font-body">
+
+    <!-- Documentation Navigation -->
+    <nav class="docs-nav fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3">
+                    <svg width="32" height="16" viewBox="0 0 100 50">
+                        <path d="M25 25 C25 10, 45 10, 50 25 C55 40, 75 40, 75 25 C75 10, 55 10, 50 25 C45 40, 25 40, 25 25" 
+                              fill="none" stroke="#161616" stroke-width="3" class="infinity-loop"/>
+                    </svg>
+                    <span class="font-header text-lg tracking-tight">SENTIENT UI</span>
+                    <span class="text-xs text-midGray uppercase tracking-widest ml-2">DOCS</span>
+                </a>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center gap-2">
+                    <a href="#overview" class="nav-link active">Overview</a>
+                    <a href="#progress" class="nav-link">Progress</a>
+                    <a href="#preview" class="nav-link">Preview</a>
+                    <a href="index.html" class="ml-4 glass-button px-6 py-2 rounded-full text-sm">
+                        ← Back to Home
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pt-4 border-t border-gray-200">
+                <div class="flex flex-col gap-3">
+                    <a href="#overview" class="nav-link active text-center">Overview</a>
+                    <a href="#progress" class="nav-link text-center">Progress</a>
+                    <a href="#preview" class="nav-link text-center">Preview</a>
+                    <a href="index.html" class="glass-button px-6 py-3 rounded-full text-center mt-2">
+                        ← Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section id="overview" class="py-20 px-6">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center">
+                    <!-- Decorative Line -->
+                    <div class="flex items-center justify-center gap-4 mb-8">
+                        <div class="w-12 h-px bg-midGray"></div>
+                        <span class="text-sm text-midGray uppercase tracking-widest">Documentation Portal</span>
+                        <div class="w-12 h-px bg-midGray"></div>
+                    </div>
+
+                    <!-- Main Heading with FIXED Animation -->
+                    <h1 class="font-header text-6xl md:text-8xl lg:text-9xl text-darkGray mb-8 leading-[1.15] overflow-visible">
+    <span class="coming-soon-text inline-block">
+        Coming Soon
+    </span>
+</h1>
+
+
+                    <!-- Description -->
+                    <p class="text-xl md:text-2xl text-midGray mb-12 leading-relaxed max-w-3xl mx-auto">
+                        We're meticulously crafting comprehensive documentation for Sentient UI. 
+                        Everything from quick start guides to advanced API references is being prepared with engineering precision.
+                    </p>
+
+                    <!-- Status Badge -->
+                    <div class="flex justify-center mb-12">
+                        <div class="status-badge">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            Actively Under Development
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress" class="py-16 px-6 bg-white/30">
+            <div class="container mx-auto max-w-4xl">
+                <div class="glass-card p-12">
+                    <div class="text-center mb-10">
+                        <h2 class="font-header text-3xl md:text-4xl text-darkGray mb-4">Development Progress</h2>
+                        <p class="text-midGray">Estimated completion: Q1 2026</p>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="mb-8">
+                        <div class="flex justify-between text-sm text-midGray mb-2">
+                            <span>Documentation Progress</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="docs-progress-bar">
+                            <div class="docs-progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Countdown -->
+                    <div class="text-center mb-8">
+                        <p class="text-midGray mb-6">Time until estimated launch:</p>
+                        <div class="flex justify-center gap-4 flex-wrap">
+                            <div class="countdown-item">
+                                <div class="text-4xl font-header text-white mb-2" id="days">90</div>
+                                <div class="text-xs text-midGray uppercase tracking-widest">Days</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="text-4xl font-header text-white mb-2" id="hours">12</div>
+                                <div class="text-xs text-midGray uppercase tracking-widest">Hours</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="text-4xl font-header text-white mb-2" id="minutes">45</div>
+                                <div class="text-xs text-midGray uppercase tracking-widest">Minutes</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="text-4xl font-header text-white mb-2" id="seconds">30</div>
+                                <div class="text-xs text-midGray uppercase tracking-widest">Seconds</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-center text-sm text-midGray mt-8">
+                        Our documentation is being built with the same engineering rigor as the framework itself.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preview Section -->
+        <section id="preview" class="py-20 px-6">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-16">
+                    <h2 class="font-header text-4xl md:text-5xl text-darkGray mb-6">What to Expect</h2>
+                    <p class="text-lg text-midGray max-w-2xl mx-auto">
+                        Comprehensive guides covering every aspect of Sentient UI implementation
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Quick Start Card -->
+                    <div class="doc-card p-8">
+                        <div class="text-pubBlue mb-6">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
+                                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-header text-2xl text-darkGray mb-4">Quick Start Guide</h3>
+                        <p class="text-midGray mb-6">
+                            Get Sentient UI running in your Flutter project in under 5 minutes. 
+                            Step-by-step installation, basic configuration, and your first adaptive component.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-pubBlue font-semibold">Status: In Development</span>
+                            <span class="text-xs text-midGray">2 weeks</span>
+                        </div>
+                    </div>
+
+                    <!-- API Reference Card -->
+                    <div class="doc-card p-8">
+                        <div class="text-pubBlue mb-6">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-header text-2xl text-darkGray mb-4">API Reference</h3>
+                        <p class="text-midGray mb-6">
+                            Complete documentation for every class, method, and property. 
+                            Searchable, with examples and detailed explanations of parameters and return values.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-pubBlue font-semibold">Status: Planning</span>
+                            <span class="text-xs text-midGray">4 weeks</span>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Guides Card -->
+                    <div class="doc-card p-8">
+                        <div class="text-pubBlue mb-6">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-header text-2xl text-darkGray mb-4">Advanced Guides</h3>
+                        <p class="text-midGray mb-6">
+                            Custom adapter development, emotion detection tuning, performance optimization, 
+                            and integration with existing Flutter applications.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-pubBlue font-semibold">Status: Planned</span>
+                            <span class="text-xs text-midGray">6 weeks</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer (Starts immediately after Preview section) -->
+        <footer class="docs-footer py-12 px-6 mt-20">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center">
+                    <!-- Logo -->
+                    <a href="index.html" class="inline-flex items-center gap-3 mb-8">
+                        <svg width="24" height="12" viewBox="0 0 100 50">
+                            <path d="M25 25 C25 10, 45 10, 50 25 C55 40, 75 40, 75 25 C75 10, 55 10, 50 25 C45 40, 25 40, 25 25" 
+                                  fill="none" stroke="#f0f0f0" stroke-width="2"/>
+                        </svg>
+                        <span class="font-header text-lg text-softWhite">SENTIENT UI</span>
+                        <span class="text-xs text-midGray uppercase tracking-widest">DOCUMENTATION</span>
+                    </a>
+
+                    <!-- Copyright -->
+                    <div class="text-xs tracking-widest text-midGray uppercase mb-4">
+                        Documentation Portal
+                    </div>
+                    <div class="text-sm text-midGray">
+                        &copy; 2026 Sentient UI Framework | Jordan University of Science and Technology
+                    </div>
+
+                    <!-- Links -->
+                    <div class="flex justify-center gap-6 mt-8">
+                        <a href="index.html" class="text-sm text-midGray hover:text-softWhite transition-colors duration-300">
+                            Home
+                        </a>
+                        <a href="index.html#research" class="text-sm text-midGray hover:text-softWhite transition-colors duration-300">
+                            Research
+                        </a>
+                        <a href="index.html#architecture" class="text-sm text-midGray hover:text-softWhite transition-colors duration-300">
+                            Architecture
+                        </a>
+                        <a href="https://github.com/AhmadRob/sentient_ui" class="text-sm text-midGray hover:text-softWhite transition-colors duration-300">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Update countdown timer
+        function updateCountdown() {
+            // Target date: March 31, 2026 (Q1 2026)
+            const targetDate = new Date('2026-03-31T23:59:59').getTime();
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+            
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                
+                // Update display
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Scroll to target
+                    const offsetTop = targetElement.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        });
+    </script>
+</body>
+</html>

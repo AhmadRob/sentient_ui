@@ -1,0 +1,113 @@
+Date : 2025-12-26 23:32:26
+Directory : d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib
+Total : 78 files,  5518 codes, 2094 comments, 1154 blanks, all 8766 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Dart     |         78 |      5,518 |      2,094 |      1,154 |      8,766 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                      | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                         |         78 |      5,518 |      2,094 |      1,154 |      8,766 |
+| . (Files)                                                                                                                                 |          1 |         16 |          8 |          7 |         31 |
+| others                                                                                                                                    |          1 |         28 |         10 |          9 |         47 |
+| src                                                                                                                                       |         76 |      5,474 |      2,076 |      1,138 |      8,688 |
+| src\core                                                                                                                                  |          1 |        113 |         24 |         31 |        168 |
+| src\input                                                                                                                                 |          3 |        175 |         58 |         55 |        288 |
+| src\logic                                                                                                                                 |          3 |        101 |         81 |         32 |        214 |
+| src\models                                                                                                                                |          4 |         68 |         11 |         17 |         96 |
+| src\processing                                                                                                                            |          3 |         71 |         66 |         23 |        160 |
+| src\ui                                                                                                                                    |         62 |      4,946 |      1,836 |        980 |      7,762 |
+| src\ui (Files)                                                                                                                            |         37 |      4,204 |      1,668 |        774 |      6,646 |
+| src\ui\configs                                                                                                                            |         25 |        742 |        168 |        206 |      1,116 |
++-------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                                                  | language | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\others\emotion_theme_v2.dart                    | Dart     |         28 |         10 |          9 |         47 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\sentient_ui.dart                                | Dart     |         16 |          8 |          7 |         31 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\core\sentient_engine.dart                   | Dart     |        113 |         24 |         31 |        168 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\input\behavior_tracker.dart                 | Dart     |         31 |         21 |         14 |         66 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\input\context_manager.dart                  | Dart     |         58 |         30 |         21 |        109 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\input\emotion_detector.dart                 | Dart     |         86 |          7 |         20 |        113 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\logic\adaptation_manager.dart               | Dart     |         42 |         15 |         10 |         67 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\logic\rule_engine.dart                      | Dart     |         33 |         35 |         11 |         79 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\logic\state_manager.dart                    | Dart     |         26 |         31 |         11 |         68 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\models\behavior_state.dart                  | Dart     |         27 |          8 |          7 |         42 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\models\context_state.dart                   | Dart     |          0 |          0 |          1 |          1 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\models\emotion_result.dart                  | Dart     |         31 |          1 |          8 |         40 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\models\emotion_state.dart                   | Dart     |         10 |          2 |          1 |         13 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\processing\bayesian_filter.dart             | Dart     |         38 |         23 |         13 |         74 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\processing\normalization_utils.dart         | Dart     |         33 |         43 |          9 |         85 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\processing\signal_fusion.dart               | Dart     |          0 |          0 |          1 |          1 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\align_config.dart                | Dart     |          9 |          5 |          6 |         20 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\animated_switcher_config.dart    | Dart     |         27 |          7 |          8 |         42 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\animation_config.dart            | Dart     |         37 |          6 |         10 |         53 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\button_config.dart               | Dart     |         37 |          6 |         10 |         53 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\clip_r_rect_config.dart          | Dart     |         17 |          5 |          6 |         28 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\column_config.dart               | Dart     |         28 |          4 |          6 |         38 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\container_config.dart            | Dart     |         47 |         11 |         12 |         70 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\expanded_config.dart             | Dart     |         37 |          9 |         10 |         56 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\feedback_config.dart             | Dart     |         15 |          5 |          7 |         27 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\grid_view_config.dart            | Dart     |         37 |          8 |          6 |         51 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\icon_config.dart                 | Dart     |         22 |          6 |          7 |         35 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\image_config.dart                | Dart     |         22 |          7 |          7 |         36 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\input_decoration_config.dart     | Dart     |         37 |          9 |         10 |         56 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\layout_config.dart               | Dart     |         37 |          6 |         10 |         53 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\list_view_config.dart            | Dart     |         32 |          8 |          9 |         49 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\rotated_box_config.dart          | Dart     |         17 |          4 |          6 |         27 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\row_config.dart                  | Dart     |         37 |          9 |         10 |         56 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\safe_area_config.dart            | Dart     |         17 |          4 |          6 |         27 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\scaffold_config.dart             | Dart     |         30 |          4 |          6 |         40 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\scroll_view_config.dart          | Dart     |         46 |         10 |         12 |         68 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\sized_box_config.dart            | Dart     |         22 |          7 |          7 |         36 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\spacer_config.dart               | Dart     |          9 |          5 |          6 |         20 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\stack_config.dart                | Dart     |         22 |          5 |          6 |         33 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\text_field_config.dart           | Dart     |         57 |         10 |         11 |         78 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\configs\typography_config.dart           | Dart     |         44 |          8 |         12 |         64 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\emotion_theme.dart                       | Dart     |        602 |         41 |         42 |        685 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_align.dart                      | Dart     |         39 |          7 |         10 |         56 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_animated_builder.dart           | Dart     |        164 |         92 |         40 |        296 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_animated_opacity.dart           | Dart     |        177 |         99 |         43 |        319 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_animated_switcher.dart          | Dart     |         41 |          7 |         11 |         59 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_aspect_ratio.dart               | Dart     |         55 |         61 |         15 |        131 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_bottom_navigation_bar.dart      | Dart     |        205 |         83 |         33 |        321 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_bottom_navigation_bar_item.dart | Dart     |        167 |         82 |         30 |        279 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_circle_avatar.dart              | Dart     |        142 |         71 |         29 |        242 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_clip_r_rect.dart                | Dart     |         41 |          7 |         10 |         58 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_column.dart                     | Dart     |         62 |         30 |         15 |        107 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_container.dart                  | Dart     |        127 |         93 |         28 |        248 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_divider.dart                    | Dart     |        101 |         69 |         23 |        193 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_draggable_scrollable_sheet.dart | Dart     |        178 |         87 |         30 |        295 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_expanded.dart                   | Dart     |         56 |         18 |         14 |         88 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_gesture_detector.dart           | Dart     |        227 |         89 |         48 |        364 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_gesture_detector1.dart          | Dart     |         25 |          8 |          5 |         38 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_grid_view.dart                  | Dart     |         54 |         42 |         16 |        112 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_icon.dart                       | Dart     |         44 |         10 |         13 |         67 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_image.dart                      | Dart     |         49 |         11 |         14 |         74 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_input_decoration.dart           | Dart     |         53 |         44 |         11 |        108 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_list_tile.dart                  | Dart     |        295 |         79 |         44 |        418 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_list_view.dart                  | Dart     |         47 |         10 |         11 |         68 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_positioned.dart                 | Dart     |        124 |         76 |         26 |        226 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_rotated_box.dart                | Dart     |         41 |          7 |         11 |         59 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_row.dart                        | Dart     |         62 |         50 |         15 |        127 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_safe_area.dart                  | Dart     |         39 |          8 |         10 |         57 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_scaffold.dart                   | Dart     |         55 |          9 |         10 |         74 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_scroll_observer.dart            | Dart     |         12 |          2 |          4 |         18 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_single_child_scroll_view.dart   | Dart     |         57 |         66 |         14 |        137 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_sized_box.dart                  | Dart     |         40 |          9 |         10 |         59 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_spacer.dart                     | Dart     |         31 |          6 |         10 |         47 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_stack.dart                      | Dart     |         44 |          6 |         10 |         60 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_text.dart                       | Dart     |        202 |        113 |         34 |        349 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_text_button.dart                | Dart     |        239 |         73 |         30 |        342 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_text_enhanced.dart              | Dart     |        245 |         84 |         40 |        369 |
+| d:\My other stuff\AndroidStudioProjects\Flutter\sentient_ui_demo\packages\sentient_ui\lib\src\ui\sentient_text_field.dart                 | Dart     |         62 |         19 |         15 |         96 |
+| Total                                                                                                                                     |          |      5,518 |      2,094 |      1,154 |      8,766 |
++-------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
