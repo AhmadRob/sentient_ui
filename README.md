@@ -17,6 +17,25 @@ This project explores how affective computing and interaction analytics can be e
 
 ---
 
+## Table of Contents
+
+- [Demo](#demo)
+- [Overview](#overview)
+- [Core Capabilities](#core-capabilities)
+- [Installation](#installation)
+- [Platform Configuration](#platform-configuration)
+- [Basic Usage](#basic-usage)
+- [Widget Integration](#widget-integration)
+- [Advanced Configuration](#advanced-configuration)
+- [System Architecture](#system-architecture)
+- [Privacy & Compliance](#privacy--compliance)
+- [Model Attribution](#model-attribution)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+---
+
 ## Demo
 
 ![Sentient UI in Action](demo.gif)
