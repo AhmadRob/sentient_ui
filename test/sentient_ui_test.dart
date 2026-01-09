@@ -5,23 +5,28 @@ import 'package:sentient_ui/sentient_ui.dart';
 void main() {
   group('SentientConfig Tests', () {
     test('Defaults are correct', () {
-      const config = SentientConfig();
+      final config = SentientConfig();
       expect(config.enableEmotionDetection, true);
       expect(config.enableContextSensing, true);
       expect(config.enableBehaviorTracking, true);
-      expect(config.captureInterval, const Duration(seconds: 10));
+      // Default should now be clamped to 30s minimum
+      expect(config.captureInterval, const Duration(seconds: 30));
     });
 
-    test('copyWith updates values correctly', () {
-      const config = SentientConfig();
+    test('captureInterval is clamped to 30s minimum in constructor', () {
+      final config = SentientConfig(captureInterval: const Duration(seconds: 10));
+      expect(config.captureInterval, const Duration(seconds: 30));
+    });
+
+    test('copyWith clamps captureInterval correctly', () {
+      final config = SentientConfig();
       final newConfig = config.copyWith(
         enableEmotionDetection: false,
         captureInterval: const Duration(seconds: 5),
       );
 
       expect(newConfig.enableEmotionDetection, false);
-      expect(newConfig.enableContextSensing, true); // Should remain same
-      expect(newConfig.captureInterval, const Duration(seconds: 5));
+      expect(newConfig.captureInterval, const Duration(seconds: 30));
     });
   });
 

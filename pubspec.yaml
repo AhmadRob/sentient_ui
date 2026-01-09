@@ -15,9 +15,7 @@ topics:
 
 screenshots:
   - description: 'Emotion-aware UI adapting between different emotional states'
-    path: assets/screenshots/demo.gif
-  - description: 'Sentient widgets responding to user emotion'
-    path: assets/screenshots/widgets_demo.png
+    path: docs/assets/demo.gif
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

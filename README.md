@@ -1,10 +1,18 @@
-# Sentient UI
+<p align="center">
+  <img src="docs/assets/logo.png" alt="Sentient UI Logo" width="200"/>
+</p>
 
-**An emotion-aware adaptive interface framework for Flutter**
+<h1 align="center">SENTIENT UI</h1>
 
-[![Pub Version](https://img.shields.io/pub/v/sentient_ui)](https://pub.dev/packages/sentient_ui)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Platform](https://img.shields.io/badge/Platform-Flutter-02569B?logo=flutter)](https://flutter.dev)
+<p align="center">
+  <strong>An emotion-aware adaptive interface framework for Flutter</strong>
+</p>
+
+<p align="center">
+  <a href="https://pub.dev/packages/sentient_ui"><img src="https://img.shields.io/pub/v/sentient_ui" alt="Pub Version"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://flutter.dev"><img src="https://img.shields.io/badge/Platform-Flutter-02569B?logo=flutter" alt="Platform"></a>
+</p>
 
 Sentient UI is a Flutter framework for building interfaces that adapt dynamically based on user emotion, behavior, and contextual signals. It introduces an adaptive layer that operates entirely on-device, enabling emotionally responsive user interfaces while maintaining strict privacy guarantees.
 
@@ -38,9 +46,13 @@ This project explores how affective computing and interaction analytics can be e
 
 ## Demo
 
-![Sentient UI in Action](demo.gif)
+<p align="center">
+  <img src="demo.gif" alt="Sentient UI in Action" width="300"/>
+</p>
 
-*A live demonstration of UI elements adapting to detected emotional and behavioral states.*
+<p align="center">
+  <em>A live demonstration of UI elements adapting to detected emotional and behavioral states.</em>
+</p>
 
 A complete runnable example is available in the `example/` directory.
 
@@ -247,6 +259,36 @@ void updateSettings(BuildContext context) {
   // engine.resume();
 }
 ```
+
+---
+
+## Design Guidelines
+
+Sentient UI provides the adaptive behavior and theming infrastructure, but developers are responsible for maintaining visual consistency and following aesthetic best practices in their implementations.
+
+### Developer Responsibilities
+
+**Theme Compatibility**  
+While the framework handles emotional state transitions and theme interpolation, your custom UI components should be designed to work harmoniously with the adaptive color palettes, spacing systems, and typography scales provided by the framework.
+
+**Visual Hierarchy**  
+Maintain consistent visual hierarchy across emotional states. Ensure that critical UI elements remain accessible and recognizable regardless of the active theme.
+
+**Accessibility**  
+Test your interface across all emotional states to ensure sufficient color contrast, readable text sizes, and appropriate touch target sizes are maintained throughout adaptation cycles.
+
+**Motion Design**  
+The framework provides smooth transitions between states, but custom animations and interactions should complement—not conflict with—the adaptive motion characteristics.
+
+### Best Practices
+
+- Design components that gracefully adapt to color and spacing changes
+- Test UI layouts with different emotional theme configurations
+- Ensure interactive elements maintain usability across all states
+- Document any custom theming extensions or overrides
+- Follow Flutter's material design or cupertino guidelines as a foundation
+
+Sentient UI enhances your interface with adaptive behavior—thoughtful design ensures that enhancement is effective.
 
 ---
 

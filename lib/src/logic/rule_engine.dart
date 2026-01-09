@@ -93,7 +93,7 @@ class RuleEngine {
         name: 'High Noise Environment',
         condition: (e, c) =>
         c.noiseLevel != null &&
-            c.noiseLevel! > 0.7, // Loud environment threshold
+            c.noiseLevel! > 70.0, // Loud environment threshold
         action: (e, c) {
           final base = EmotionTheme.fromState(e.dominantEmotion);
           return Adaptation(

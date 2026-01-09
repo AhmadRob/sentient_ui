@@ -53,7 +53,7 @@ class SentientConsentView extends StatefulWidget {
     super.key,
     required this.engine,
     required this.onCompleted,
-    this.captureInterval = const Duration(seconds: 2),
+    this.captureInterval = const Duration(seconds: 30),
     this.initialEmotionEnabled = true,
     this.initialContextEnabled = true,
     this.initialBehaviorEnabled = true,

@@ -70,7 +70,7 @@ class EmotionDetector {
   ///
   /// [confidenceThreshold] - The minimum probability (0.0 - 1.0) required to return a result.
   /// Returns `null` if the highest confidence score is below this threshold or if processing fails.
-  EmotionResult? detect(img.Image image, {double confidenceThreshold = 0.3}) {
+  EmotionResult? detect(img.Image image, {double confidenceThreshold = 0.4}) {
     try {
       final input = _preprocessImage(image);
       final output = _runInference(input);
@@ -140,6 +140,8 @@ class EmotionDetector {
 
       if (emotionState != null) {
         probabilities[emotionState] = confidence;
+
+        debugPrint('[EmotionDetector] Emotion: $emotionState, Confidence: $confidence');
 
         // Track the winner
         if (confidence > maxConfidence) {

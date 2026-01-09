@@ -1,13 +1,15 @@
 import 'dart:math';
+import 'package:flutter/material.dart';
 import 'package:sentient_ui/sentient_ui.dart';
 
 import '../models/emotion_state.dart';
 
-/// A Bayesian filter for smoothing emotion predictions over time.
+/// A Bayesian filter with smoothing for emotion predictions over time.
 ///
 /// This filter maintains a probability distribution over a set of possible emotions
 /// and updates these probabilities based on new evidence (emotion measurements).
-/// This helps to reduce noise and create a more stable emotion reading.
+/// Smoothing ensures that the dominant emotion can shift realistically
+/// without being “locked” by past strong priors.
 class BayesianFilter {
   // A map to hold the current probability of each emotion state.
   late Map<EmotionState, double> _probabilities;
@@ -18,6 +20,10 @@ class BayesianFilter {
   // Small constant to prevent "Zero-locking".
   // Represents the 1% chance the sensor input is noise/incorrect.
   static const double _epsilon = 0.01;
+
+  // Smoothing factor for blending new evidence with prior belief.
+  // 0.0 = ignore new evidence, 1.0 = full trust in new evidence.
+  final double _alpha = 0.5;
 
   /// Initializes the filter with a uniform prior distribution.
   BayesianFilter() {
@@ -32,26 +38,25 @@ class BayesianFilter {
     };
   }
 
-  /// Updates the emotion probabilities based on new evidence.
+  /// Updates the emotion probabilities based on new evidence with smoothing.
   ///
   /// [measuredProbabilities] A map of emotion probabilities from the emotion detector.
   void update(Map<EmotionState, double> measuredProbabilities) {
+    // 1. Log the current best guess (Prior)
+    final priorEmotion = currentEmotion;
+    final priorConf = _probabilities[priorEmotion]!;
+
     double totalProbability = 0.0;
     final newProbabilities = <EmotionState, double>{};
 
-    // --- Bayes' Theorem Application ---
-    // P(Emotion | Evidence) = P(Evidence | Emotion) * P(Emotion)
-    // posterior = (likelihood + epsilon) * prior
-
+    // --- Bayesian update with smoothing ---
+    // posterior = alpha * likelihood + (1 - alpha) * prior
     for (final emotion in _emotionStates) {
       final prior = _probabilities[emotion]!;
-
-      // We add _epsilon to the likelihood. This ensures that even if the
-      // model reports 0.0 for an emotion, it doesn't get multiplied to absolute zero.
-      // This allows the filter to switch between emotions when evidence changes.
       final likelihood = (measuredProbabilities[emotion] ?? 0.0) + _epsilon;
 
-      final posterior = likelihood * prior;
+      // Apply smoothing to prevent locking
+      final posterior = (_alpha * likelihood) + ((1 - _alpha) * prior);
 
       newProbabilities[emotion] = posterior;
       totalProbability += posterior;
@@ -62,7 +67,22 @@ class BayesianFilter {
       for (final emotion in _emotionStates) {
         _probabilities[emotion] = newProbabilities[emotion]! / totalProbability;
       }
+
+      // 2. Log the Shift
+      final newEmotion = currentEmotion;
+      final newConf = _probabilities[newEmotion]!;
+
+      if (priorEmotion != newEmotion) {
+        debugPrint('🔄 [BayesianFilter] State SHIFT: ${priorEmotion.name} → ${newEmotion.name}');
+      }
+
+      final sorted = _probabilities.entries.toList()
+        ..sort((a, b) => b.value.compareTo(a.value));
+      final top3 = sorted.take(3).map((e) => '${e.key.name}: ${(e.value * 100).toStringAsFixed(1)}%').join(', ');
+      debugPrint('📊 [BayesianFilter] Beliefs: $top3');
+
     } else {
+      debugPrint('⚠️ [BayesianFilter] Signal lost, resetting to uniform distribution.');
       _reset();
     }
   }

@@ -59,10 +59,16 @@ class SentientApp extends StatefulWidget {
 
   /// The frequency at which the engine samples emotion and context.
   ///
-  /// A shorter interval provides more responsive adaptation but consumes more battery.
-  /// A longer interval is more efficient but may miss transient emotional reactions.
+  /// Controls how often the [SentientEngine] runs its main adaptation loop.
+  /// Shorter intervals make UI adaptations more responsive to transient emotions,
+  /// but increase battery usage. Longer intervals reduce power consumption but
+  /// may miss short-lived emotional states.
   ///
-  /// Defaults to 10 seconds.
+  /// **Minimum Interval Enforcement**: Internally, the engine enforces a minimum
+  /// of 30 seconds. This ensures the Bayesian filter has enough samples from the
+  /// fast emotion loop (5-second intervals) to produce reliable, smoothed
+  /// emotion predictions. Providing a shorter value here will be clamped at runtime
+  /// without breaking functionality.
   final Duration captureInterval;
 
   /// Initial state for camera-based emotion detection.
@@ -97,7 +103,7 @@ class SentientApp extends StatefulWidget {
     this.theme,
     this.debugShowCheckedModeBanner = false,
     this.enableEmotionTheming = true,
-    this.captureInterval = const Duration(seconds: 10),
+    this.captureInterval = const Duration(seconds: 30),
     this.enableEmotionDetection = true,
     this.enableContextSensing = true,
     this.enableBehaviorTracking = true,
@@ -107,6 +113,10 @@ class SentientApp extends StatefulWidget {
   State<SentientApp> createState() => _SentientAppState();
 }
 
+/// Internal state management for [SentientApp].
+///
+/// Handles engine initialization, configuration restoration,
+/// and conditional rendering of consent vs. main content.
 class _SentientAppState extends State<SentientApp> {
   /// The core engine instance managed by this widget.
   late final SentientEngine _engine;
@@ -123,7 +133,15 @@ class _SentientAppState extends State<SentientApp> {
     _initializeEngine();
   }
 
-  /// Checks for existing configuration and attempts to restore the engine state.
+  /// Internal: Checks for existing configuration and attempts to restore the engine state.
+  ///
+  /// If a valid configuration exists (user previously consented), the engine
+  /// initializes immediately and the main app content will display.
+  /// If no prior consent is found (first run), the engine remains uninitialized,
+  /// triggering the [SentientConsentView] for permission and configuration input.
+  ///
+  /// Once the check is complete, [_isInitializing] is set to `false` to stop showing
+  /// the loading spinner.
   Future<void> _initializeEngine() async {
     // Attempt to restore configuration (e.g., from SharedPreferences).
     // If a valid config exists (user previously consented), the engine initializes immediately.
@@ -137,6 +155,10 @@ class _SentientAppState extends State<SentientApp> {
     }
   }
 
+  /// Releases engine resources when the app is disposed.
+  ///
+  /// This ensures camera and microphone access are properly
+  /// terminated when the widget tree is destroyed.
   @override
   void dispose() {
     // Ensure the engine releases camera/microphone resources when the app is shut down.
@@ -205,10 +227,14 @@ class _SentientAppState extends State<SentientApp> {
     );
   }
 
-  /// Wraps the home widget with the emotion-adaptive theming infrastructure.
+  /// Internal: Wraps the home widget with emotion-adaptive theming.
   ///
-  /// This builds a [Theme] widget that is dynamically updated by [AnimatedEmotionTheme]
-  /// based on the [AdaptationManager]'s current state.
+  /// Returns a [Theme] widget that updates dynamically based on the current
+  /// emotional state from [AdaptationManager]. The [AnimatedEmotionTheme]
+  /// interpolates between themes smoothly, providing subtle emotion-driven
+  /// UI adaptations without abrupt changes.
+  ///
+  /// This method is only used internally when [enableEmotionTheming] is `true`.
   Widget _buildEmotionThemedHome() {
     return Consumer<AdaptationManager>(
       builder: (context, adaptationManager, _) {

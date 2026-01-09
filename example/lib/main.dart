@@ -15,10 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // SentientApp handles initialization, persistence, providers, and consent flow.
     // It also handles emotion-driven theming automatically.
-    return const SentientApp(
+    return SentientApp(
       title: 'Sentient UI Demo',
       debugShowCheckedModeBanner: false,
       enableEmotionTheming: true,
+      captureInterval: const Duration(seconds: 30),
       home: SentientShowcaseScreen(),
     );
   }
