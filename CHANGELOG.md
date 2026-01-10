@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.1.1
+
+### Fixed
+- Corrected asset paths for models and demo files to ensure proper loading in the example and package.
+- Updated documentation references for the demo gif and other assets.
+
 ## 0.1.0
 
 ### Added
