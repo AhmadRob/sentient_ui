@@ -60,6 +60,10 @@ class SentientEngine extends ChangeNotifier {
   BehaviorTracker get behaviorTracker => _behaviorTracker;
   ContextManager get contextManager => _contextManager;
   SentientConfig get config => _config;
+  bool get _hasAnySignalSource =>
+      _config.enableEmotionDetection ||
+          _config.enableContextSensing ||
+          _config.enableBehaviorTracking;
 
   /// Constructor.
   ///
@@ -191,6 +195,11 @@ class SentientEngine extends ChangeNotifier {
   void _startAdaptationLoop() {
     _adaptationTimer?.cancel();
 
+    if (!_hasAnySignalSource) {
+      debugPrint('[SentientEngine] All signals disabled. Adaptation loop not started.');
+      return;
+    }
+
     final interval = _config.captureInterval.inSeconds < 30
         ? const Duration(seconds: 30)
         : _config.captureInterval;
@@ -203,6 +212,12 @@ class SentientEngine extends ChangeNotifier {
   /// Starts the fast emotion sampling loop (every 5 seconds).
   void _startFastEmotionLoop() {
     _fastEmotionTimer?.cancel();
+
+    if (!_config.enableEmotionDetection) {
+      debugPrint('[SentientEngine] Emotion detection disabled. Fast loop not started.');
+      return;
+    }
+
     _fastEmotionTimer = Timer.periodic(const Duration(seconds: 5), (_) async {
       if (!_isPaused) await _collectEmotionData();
     });
@@ -236,6 +251,7 @@ class SentientEngine extends ChangeNotifier {
 
   /// Applies UI adaptation using the smoothed emotion from the Bayesian filter.
   Future<void> _applyAdaptation() async {
+    if (!_hasAnySignalSource) return;
     _isProcessing = true;
     try {
       if (_config.enableContextSensing) await _contextManager.sampleContext();

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.1.2
+
+### Fixed / Updated
+- Updated `index.html` to include the pub.dev package link for `sentient_ui`.
+- Corrected documentation in `SentientConsentView`: default capture interval is now 30s (previously commented as 10s).
+- Engine now prevents adaptation loops when all features (emotion, context, behavior) are disabled:
+  - Added `_hasAnySignalSource` check.
+  - Guarded `_startAdaptationLoop` and `_startFastEmotionLoop`.
+  - Added safety check in `_applyAdaptation`.
+- `SentientApp` updated to skip `AnimatedEmotionTheme` if no inputs are enabled.
+- Added debug logs when loops are skipped due to all features being off.
+
 ## 0.1.1
 
 ### Fixed

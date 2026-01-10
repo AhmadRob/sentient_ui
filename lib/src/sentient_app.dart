@@ -205,7 +205,10 @@ class _SentientAppState extends State<SentientApp> {
             // 3. Initialized: Show the main app content.
             if (engine.isInitialized) {
               // Optionally wrap with emotion theming logic.
-              if (widget.enableEmotionTheming) {
+              if (widget.enableEmotionTheming &&
+              (engine.config.enableEmotionDetection ||
+              engine.config.enableContextSensing ||
+              engine.config.enableBehaviorTracking)) {
                 return _buildEmotionThemedHome();
               }
               return widget.home;

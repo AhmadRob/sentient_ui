@@ -27,7 +27,7 @@ class SentientConsentView extends StatefulWidget {
 
   /// The sampling interval to be applied to the engine configuration.
   ///
-  /// Defaults to 10 seconds.
+  /// Defaults to 30 seconds.
   final Duration captureInterval;
 
   /// The initial toggle state for emotion detection.
