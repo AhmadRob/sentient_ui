@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../foundation/emotion_theme.dart' hide EmotionTheme;
 
 /// A reactive, emotion-aware [Expanded] widget that wraps its child in an
 /// adaptive container.

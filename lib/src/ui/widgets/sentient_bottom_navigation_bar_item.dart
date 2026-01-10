@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../../models/emotion_state.dart';
 
 /// A reactive bottom navigation bar item that adapts its appearance based on the
 /// user's emotional state.

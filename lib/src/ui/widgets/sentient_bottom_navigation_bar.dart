@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../../models/emotion_state.dart';
 
 /// A reactive bottom navigation bar that adapts its styling and layout based on the
 /// user's emotional state.
@@ -113,7 +112,7 @@ class SentientBottomNavigationBar extends StatelessWidget {
       return BottomNavigationBarItem(
         icon: _buildIcon(item.icon, theme, config, false),
         activeIcon:
-            _buildIcon(item.activeIcon ?? item.icon, theme, config, true),
+            _buildIcon(item.activeIcon, theme, config, true),
         label: item.label,
       );
     }).toList();

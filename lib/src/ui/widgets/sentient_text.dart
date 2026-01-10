@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../foundation/emotion_theme.dart';
 
 /// Defines the text variant type for adaptive styling.
 enum TextVariant {

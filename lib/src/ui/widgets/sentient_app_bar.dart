@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../configs/app_bar_config.dart';
 
 /// An emotion-aware application bar widget.
 ///
@@ -96,7 +95,7 @@ class SentientAppBar extends StatelessWidget
             : [
           BoxShadow(
             color: Colors.black
-                .withOpacity(resolved.shadowIntensity),
+                .withAlpha((resolved.shadowIntensity * 255).round()),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),

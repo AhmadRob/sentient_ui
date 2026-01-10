@@ -22,7 +22,7 @@ class ListsGridsSection extends StatelessWidget {
             children: List.generate(
               4,
               (i) => SentientContainer(
-                color: Colors.indigo.withOpacity(0.1),
+                color: Colors.indigo.withAlpha((0.1 * 255).round()),
                 child: Center(child: Text('${i + 1}')),
               ),
             ),
@@ -41,7 +41,7 @@ class ListsGridsSection extends StatelessWidget {
                 padding: EdgeInsets.only(right: 8.0),
                 child: SentientContainer(
                   width: 50,
-                  color: Colors.amber.withOpacity(0.2),
+                  color: Colors.amber.withAlpha((0.2 * 255).round()),
                   child: Center(child: Text('L${i + 1}')),
                 ),
               ),

@@ -1,8 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:sentient_ui/sentient_ui.dart';
 
-import '../models/emotion_state.dart';
-
 /// Manages the global emotional state of the application.
 ///
 /// This class follows the singleton pattern to provide a single source of truth

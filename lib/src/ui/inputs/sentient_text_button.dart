@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../foundation/emotion_theme.dart';
 
 /// A reactive text button widget that adapts its styling based on the
 /// user's emotional state.
@@ -129,7 +128,7 @@ class SentientTextButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(config.borderRadius),
       ),
     ).copyWith(
-      overlayColor: MaterialStateProperty.all(config.overlayColor),
+      overlayColor: WidgetStateProperty.all(config.overlayColor),
     );
   }
 

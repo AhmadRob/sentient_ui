@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../foundation/emotion_theme.dart';
 
 
 /// Defines the visual variants that a [SentientContainer] can present.
@@ -144,7 +143,7 @@ class SentientContainer extends StatelessWidget {
 
   /// Resolves the final container style by combining config, theme, and variant decision.
   _ContainerStyle _resolveStyle(EmotionTheme theme, ContainerConfig config) {
-    Color baseColor = config.backgroundColor ?? theme.surfaceColor;
+    final Color baseColor = config.backgroundColor ?? theme.surfaceColor;
     double radius = config.borderRadius;
     List<BoxShadow>? shadows = [];
 
@@ -152,7 +151,7 @@ class SentientContainer extends StatelessWidget {
     if (config.shadowIntensity > 0) {
        shadows = [
         BoxShadow(
-          color: theme.secondaryColor.withOpacity(config.shadowIntensity),
+          color: theme.secondaryColor.withAlpha((config.shadowIntensity * 255).round()),
           blurRadius: config.shadowIntensity * 20,
           offset: Offset(0, config.shadowIntensity * 10),
         )

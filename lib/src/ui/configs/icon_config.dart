@@ -22,7 +22,7 @@ class IconConfig {
 
   /// Soft style for sadness
   static IconConfig soft(Color defaultColor) => IconConfig(
-    color: defaultColor.withOpacity(0.8),
+    color: defaultColor.withAlpha(204),
     size: 28.0,
   );
 

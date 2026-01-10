@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../../models/emotion_state.dart';
-import '../foundation/emotion_theme.dart';
 
 /// A reactive draggable scrollable sheet that adapts its behavior and appearance based on the
 /// user's emotional state.
@@ -133,7 +131,7 @@ class SentientDraggableScrollableSheet extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: theme.primaryColor.withOpacity(0.1),
+            color: theme.primaryColor.withAlpha(26),
             blurRadius: config.shadowBlur,
             offset: Offset(0, config.shadowOffset),
           ),

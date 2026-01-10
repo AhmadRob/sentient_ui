@@ -66,7 +66,7 @@ packages:
     source: hosted
     version: "2.1.2"
   camera:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: camera
       sha256: eefad89f262a873f38d21e5eec853461737ea074d7c9ede39f3ceb135d201cab

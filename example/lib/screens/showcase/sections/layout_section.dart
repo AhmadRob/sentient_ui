@@ -17,7 +17,7 @@ class LayoutSection extends StatelessWidget {
         SentientSizedBox(height: 8),
         SentientContainer(
           height: 100,
-          color: Colors.grey.withOpacity(0.1),
+          color: Colors.grey.withAlpha((0.1 * 255).round()),
           child: SentientStack(
             children: [
               SentientPositioned(
@@ -46,7 +46,7 @@ class LayoutSection extends StatelessWidget {
             SentientContainer(
               width: 30,
               height: 30,
-              color: Colors.red.withOpacity(0.3),
+              color: Colors.red.withAlpha((0.3 * 255).round()),
             ),
             SentientSpacer(),
             SentientExpanded(
@@ -59,7 +59,7 @@ class LayoutSection extends StatelessWidget {
             SentientContainer(
               width: 30,
               height: 30,
-              color: Colors.blue.withOpacity(0.3),
+              color: Colors.blue.withAlpha((0.3 * 255).round()),
             ),
           ],
         ),
@@ -68,18 +68,18 @@ class LayoutSection extends StatelessWidget {
         // AspectRatio, ClipRRect, RotatedBox - FIXED
         SentientTextEnhanced('Aspect Ratio, Clip & Rotation:'),
         SentientSizedBox(height: 8),
-        Container( // Wrap the Row with a Container to give it bounds
+        SizedBox( // Wrap the Row with a Container to give it bounds
           height: 80, // Give the row a height constraint
           child: SentientRow(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               // FIX 1: Wrap AspectRatio with a Container that has width
-              Container(
+              SizedBox(
                 width: 60, // Constrain the width
                 child: SentientAspectRatio(
                   aspectRatio: 1.0,
                   child: SentientContainer(
-                    color: Colors.orange.withOpacity(0.3),
+                    color: Colors.orange.withAlpha((0.3 * 255).round()),
                     child: Center(child: Text('1:1')),
                   ),
                 ),
@@ -91,7 +91,7 @@ class LayoutSection extends StatelessWidget {
                 child: SentientClipRRect(
                   borderRadius: 15,
                   child: SentientContainer(
-                    color: Colors.purple.withOpacity(0.3),
+                    color: Colors.purple.withAlpha((0.3 * 255).round()),
                     child: Center(child: Text('Clip')),
                   ),
                 ),
@@ -106,7 +106,7 @@ class LayoutSection extends StatelessWidget {
                   quarterTurns: 1,
                   child: SentientContainer(
                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    color: Colors.teal.withOpacity(0.3),
+                    color: Colors.teal.withAlpha((0.3 * 255).round()),
                     child: Text('Rotated'),
                   ),
                 ),

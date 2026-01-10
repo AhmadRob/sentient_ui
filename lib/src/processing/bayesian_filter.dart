@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:sentient_ui/sentient_ui.dart';
 
@@ -46,6 +45,8 @@ class BayesianFilter {
     final priorEmotion = currentEmotion;
     final priorConf = _probabilities[priorEmotion]!;
 
+    debugPrint('📊 [BayesianFilter] Current beliefs: ${priorEmotion.name}: ${(priorConf * 100).toStringAsFixed(1)}%');
+
     double totalProbability = 0.0;
     final newProbabilities = <EmotionState, double>{};
 
@@ -71,6 +72,8 @@ class BayesianFilter {
       // 2. Log the Shift
       final newEmotion = currentEmotion;
       final newConf = _probabilities[newEmotion]!;
+
+      debugPrint('📊 [BayesianFilter] New beliefs: ${newEmotion.name}: ${(newConf * 100).toStringAsFixed(1)}%');
 
       if (priorEmotion != newEmotion) {
         debugPrint('🔄 [BayesianFilter] State SHIFT: ${priorEmotion.name} → ${newEmotion.name}');

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../configs/column_config.dart';
-import '../foundation/emotion_theme.dart';
 
 /// A reactive, emotion-aware column that wraps its children in an adaptive container.
 ///

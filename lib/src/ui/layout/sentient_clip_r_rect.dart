@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../foundation/emotion_theme.dart';
 
 /// A reactive widget that clips its child using a rounded rectangle that adapts
 /// to the user's emotional state.

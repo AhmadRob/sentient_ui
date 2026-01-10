@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import '../../sentient_ui.dart';
 import '../models/behavioral_emotion_result.dart';
-import '../models/emotion_state.dart';
 
 // --- Tracker ---
 

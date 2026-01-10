@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';import '../../../sentient_ui.dart';
-
-import '../foundation/emotion_theme.dart';
+import 'package:provider/provider.dart';
+import '../../../sentient_ui.dart';
 
 /// A reactive widget that applies adaptive padding within the safe area of the screen
 /// based on the user's emotional state.

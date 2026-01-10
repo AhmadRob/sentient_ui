@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../configs/icon_config.dart';
-import '../foundation/emotion_theme.dart';
 
 /// A reactive icon widget that adapts its appearance based on the
 /// user's emotional state.

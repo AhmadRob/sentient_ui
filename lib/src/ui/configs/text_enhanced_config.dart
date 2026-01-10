@@ -68,7 +68,7 @@ class TextEnhancedConfig {
     height: 1.5,
     wordSpacing: 1.5,
     fontWeight: FontWeight.w600,
-    shadows: [Shadow(color: primary.withOpacity(0.2), blurRadius: 2.0, offset: const Offset(0, 1))],
+    shadows: [Shadow(color: primary.withAlpha(51), blurRadius: 2.0, offset: const Offset(0, 1))],
   );
 
   /// Spacious/Stable for Fear.

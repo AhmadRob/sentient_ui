@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../configs/ink_well_config.dart';
 
 /// An emotion-aware [InkWell] wrapper that adapts its interaction
 /// feedback based on the current [EmotionTheme].
@@ -105,6 +104,6 @@ class SentientInkWell extends StatelessWidget {
   /// The [intensity] value is clamped between 0.0 and 1.0
   /// and mapped to the color's opacity.
   Color _applySplashIntensity(Color baseColor, double intensity) {
-    return baseColor.withOpacity(intensity.clamp(0.0, 1.0));
+    return baseColor.withAlpha((intensity.clamp(0.0, 1.0) * 255).round());
   }
 }

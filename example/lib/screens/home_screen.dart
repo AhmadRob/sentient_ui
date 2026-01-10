@@ -97,9 +97,9 @@ class _EmotionDisplay extends StatelessWidget {
       margin: const EdgeInsets.all(20.0),
       padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.6),
+        color: Colors.black..withAlpha(153),
         borderRadius: BorderRadius.circular(30.0),
-        border: Border.all(color: Colors.white.withOpacity(0.2)),
+        border: Border.all(color: Colors.white.withAlpha(51)),
         boxShadow: const [
           BoxShadow(
             color: Colors.black26,
@@ -123,7 +123,7 @@ class _EmotionDisplay extends StatelessWidget {
           Text(
             "${(confidence * 100).toStringAsFixed(1)}%",
             style: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+              color: Colors.white.withAlpha((0.7 * 255).round()),
               fontSize: 14.0,
             ),
           ),

@@ -173,7 +173,7 @@ class _SentientConsentViewState extends State<SentientConsentView>
                         _useSystemTheme ? 'System Theme' : 'Manual Theme',
                         style: TextStyle(
                           fontSize: 10,
-                          color: _foregroundColor.withOpacity(0.5),
+                          color: _foregroundColor.withAlpha(128),
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -185,10 +185,10 @@ class _SentientConsentViewState extends State<SentientConsentView>
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: _foregroundColor.withOpacity(0.1),
+                            color: _foregroundColor.withAlpha(26),
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                              color: _foregroundColor.withOpacity(0.2),
+                              color: _foregroundColor.withAlpha(51),
                             ),
                           ),
                           child: Icon(
@@ -197,7 +197,7 @@ class _SentientConsentViewState extends State<SentientConsentView>
                                 : (_isDarkMode
                                     ? Icons.light_mode_outlined
                                     : Icons.dark_mode_outlined),
-                            color: _foregroundColor.withOpacity(0.8),
+                            color: _foregroundColor.withAlpha(204),
                           ),
                         ),
                       ),
@@ -223,7 +223,7 @@ class _SentientConsentViewState extends State<SentientConsentView>
                   widget.description,
                   style: TextStyle(
                     fontSize: 14,
-                    color: _foregroundColor.withOpacity(0.6),
+                    color: _foregroundColor.withAlpha(153),
                     height: 1.5,
                   ),
                 ),
@@ -266,7 +266,7 @@ class _SentientConsentViewState extends State<SentientConsentView>
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 12,
-                    color: _foregroundColor.withOpacity(0.4),
+                    color: _foregroundColor.withAlpha(102),
                   ),
                 ),
 
@@ -293,10 +293,10 @@ class _SentientConsentViewState extends State<SentientConsentView>
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: _foregroundColor.withOpacity(value ? 0.12 : 0.05),
+        color: _foregroundColor.withAlpha(value ? 31 : 13),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: _foregroundColor.withOpacity(value ? 0.25 : 0.15),
+          color: _foregroundColor.withAlpha(value ? 64 : 38),
         ),
       ),
       child: Row(
@@ -318,7 +318,7 @@ class _SentientConsentViewState extends State<SentientConsentView>
                 Text(
                   description,
                   style: TextStyle(
-                    color: _foregroundColor.withOpacity(0.6),
+                    color: _foregroundColor.withAlpha(153),
                     fontSize: 13,
                   ),
                 ),
@@ -328,7 +328,7 @@ class _SentientConsentViewState extends State<SentientConsentView>
           Switch(
             value: value,
             onChanged: onChanged,
-            activeColor: _foregroundColor,
+            activeThumbColor: _foregroundColor,
           ),
         ],
       ),
@@ -341,7 +341,7 @@ class _SentientConsentViewState extends State<SentientConsentView>
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: Material(
-          color: _foregroundColor.withOpacity(0.1),
+          color: _foregroundColor.withAlpha(26),
           child: InkWell(
             onTap: _isInitializing ? null : _handleContinue,
             child: SizedBox(

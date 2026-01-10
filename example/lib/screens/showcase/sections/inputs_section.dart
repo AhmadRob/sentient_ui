@@ -43,7 +43,7 @@ class _InputsSectionState extends State<InputsSection> {
                   onTap: () => setState(() => _toggleState = !_toggleState),
                   child: SentientContainer(
                     padding: const EdgeInsets.all(12),
-                    color: Colors.blue.withOpacity(0.1),
+                    color: Colors.blue.withAlpha((0.1 * 255).round()),
                     child: const SentientText('Tap Detector'),
                   ),
                 ),

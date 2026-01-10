@@ -3,7 +3,7 @@
 A complete demonstration application for the `sentient_ui` package. This app showcases how to integrate emotion-aware adaptation into a Flutter project.
 
 <p align="center">
-  <img src="../docs/assets/demo.gif" alt="Sentient UI Demo" width="300"/>
+  <img src="../doc/assets/demo.gif" alt="Sentient UI Demo" width="300"/>
 </p>
 
 <p align="center">

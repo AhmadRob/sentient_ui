@@ -15,7 +15,7 @@ topics:
 
 screenshots:
   - description: 'Emotion-aware UI adapting between different emotional states'
-    path: docs/assets/demo.gif
+    path: doc/assets/demo.gif
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

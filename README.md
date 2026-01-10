@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/logo.png" alt="Sentient UI Logo" width="200"/>
+  <img src="doc/assets/logo.png" alt="Sentient UI Logo" width="200"/>
 </p>
 
 <h1 align="center">SENTIENT UI</h1>

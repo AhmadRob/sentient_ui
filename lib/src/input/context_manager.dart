@@ -9,8 +9,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'dart:math' as math;
 
 import '../../sentient_ui.dart';
-import '../models/context_result.dart';
-import '../models/network_type.dart';
 
 // --- Manager ---
 

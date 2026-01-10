@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../../models/emotion_state.dart';
 
 /// A reactive circle avatar that adapts its appearance based on the
 /// user's emotional state.
@@ -117,7 +116,7 @@ class SentientCircleAvatar extends StatelessWidget {
           styledChild = AnimatedContainer(
             duration: theme.animation.microInteractionDuration,
             curve: Curves.easeInOut,
-            transform: Matrix4.identity()..scale(1.05),
+            transform: Matrix4.identity()..scaleByDouble(1.05, 1.05, 1.05, 1.0),
             child: styledChild,
           );
           break;
@@ -126,7 +125,7 @@ class SentientCircleAvatar extends StatelessWidget {
           styledChild = AnimatedContainer(
             duration: theme.animation.microInteractionDuration,
             curve: Curves.bounceOut,
-            transform: Matrix4.identity()..scale(1.1),
+            transform: Matrix4.identity()..scaleByDouble(1.1, 1.1, 1.1, 1.0),
             child: styledChild,
           );
           break;

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../foundation/emotion_theme.dart';
 
 /// A reactive list tile widget that adapts its styling based on the
 /// user's emotional state.
@@ -161,7 +160,7 @@ class SentientListTile extends StatelessWidget {
 
     if (subtitle is Text) {
       final text = subtitle as Text;
-      final style = theme.captionTextStyle.merge(config.subtitleStyle).copyWith(color: config.textColor.withOpacity(0.7));
+      final style = theme.captionTextStyle.merge(config.subtitleStyle).copyWith(color: config.textColor.withAlpha(179));
       
       return DefaultTextStyle(
         style: style,
@@ -170,7 +169,7 @@ class SentientListTile extends StatelessWidget {
     }
 
     return DefaultTextStyle(
-      style: theme.captionTextStyle.merge(config.subtitleStyle).copyWith(color: config.textColor.withOpacity(0.7)),
+      style: theme.captionTextStyle.merge(config.subtitleStyle).copyWith(color: config.textColor.withAlpha(179)),
       child: subtitle!,
     );
   }
@@ -184,7 +183,7 @@ class SentientListTile extends StatelessWidget {
       return Icon(
         icon.icon,
         size: config.iconSize * 0.8, // Slightly smaller for trailing
-        color: config.iconColor.withOpacity(0.7),
+        color: config.iconColor.withAlpha(179),
       );
     }
 

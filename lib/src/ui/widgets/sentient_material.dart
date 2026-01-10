@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../configs/material_config.dart';
 
 /// A Material wrapper that adapts its visual style dynamically
 /// based on the current [EmotionTheme].

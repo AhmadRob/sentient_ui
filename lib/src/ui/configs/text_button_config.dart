@@ -36,9 +36,9 @@ class TextButtonConfig {
 
   /// Minimal styling for anger.
   static TextButtonConfig minimal(Color primary) => TextButtonConfig(
-    backgroundColor: primary.withOpacity(0.1),
+    backgroundColor: primary.withAlpha(26),
     foregroundColor: primary,
-    overlayColor: primary.withOpacity(0.1),
+    overlayColor: primary.withAlpha(26),
     borderRadius: 8.0,
     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
     fontWeight: FontWeight.w500,
@@ -47,9 +47,9 @@ class TextButtonConfig {
 
   /// Professional styling for contempt/neutral.
   static TextButtonConfig standard(Color primary) => TextButtonConfig(
-    backgroundColor: primary.withOpacity(0.05),
+    backgroundColor: primary.withAlpha(13),
     foregroundColor: primary,
-    overlayColor: primary.withOpacity(0.1),
+    overlayColor: primary.withAlpha(26),
     borderRadius: 8.0,
     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
     fontWeight: FontWeight.w400,
@@ -59,7 +59,7 @@ class TextButtonConfig {
   static TextButtonConfig clean(Color primary) => TextButtonConfig(
     backgroundColor: Colors.transparent,
     foregroundColor: primary,
-    overlayColor: primary.withOpacity(0.15),
+    overlayColor: primary.withAlpha(38),
     borderRadius: 12.0,
     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
     fontWeight: FontWeight.w400,
@@ -67,9 +67,9 @@ class TextButtonConfig {
 
   /// Expressive styling for enjoyment.
   static TextButtonConfig expressive(Color primary) => TextButtonConfig(
-    backgroundColor: primary.withOpacity(0.2),
+    backgroundColor: primary.withAlpha(51),
     foregroundColor: primary,
-    overlayColor: primary.withOpacity(0.3),
+    overlayColor: primary.withAlpha(77),
     borderRadius: 16.0,
     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
     fontWeight: FontWeight.w600,
@@ -79,7 +79,7 @@ class TextButtonConfig {
   static TextButtonConfig stable(Color primary) => TextButtonConfig(
     backgroundColor: Colors.transparent,
     foregroundColor: primary,
-    overlayColor: primary.withOpacity(0.08),
+    overlayColor: primary.withAlpha(20),
     borderRadius: 8.0,
     padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
     fontWeight: FontWeight.w400,
@@ -88,9 +88,9 @@ class TextButtonConfig {
 
   /// Gentle styling for sadness.
   static TextButtonConfig gentle(Color primary) => TextButtonConfig(
-    backgroundColor: primary.withOpacity(0.1),
+    backgroundColor: primary.withAlpha(26),
     foregroundColor: primary,
-    overlayColor: primary.withOpacity(0.12),
+    overlayColor: primary.withAlpha(31),
     borderRadius: 14.0,
     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
     fontWeight: FontWeight.w400,
@@ -98,9 +98,9 @@ class TextButtonConfig {
 
   /// Dynamic styling for surprise.
   static TextButtonConfig dynamic(Color secondary) => TextButtonConfig(
-    backgroundColor: secondary.withOpacity(0.25),
+    backgroundColor: secondary.withAlpha(64),
     foregroundColor: secondary,
-    overlayColor: secondary.withOpacity(0.4),
+    overlayColor: secondary.withAlpha(102),
     borderRadius: 18.0,
     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
     fontWeight: FontWeight.w700,

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../configs/text_enhanced_config.dart';
-import '../foundation/emotion_theme.dart';
 
 /// An enhanced reactive text widget that adapts its styling based on the
 /// user's emotional state with direct [Text] widget attribute mapping.

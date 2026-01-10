@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../configs/back_button_config.dart';
 
 /// An emotion-aware back navigation button.
 ///
@@ -71,7 +70,7 @@ class SentientBackButton extends StatelessWidget {
     final effectiveColor =
         color ??
             resolved.color ??
-            theme.primaryColor.withOpacity(resolved.opacity);
+            theme.primaryColor.withAlpha((resolved.opacity * 255).round());
 
     return Padding(
       padding: resolved.padding,

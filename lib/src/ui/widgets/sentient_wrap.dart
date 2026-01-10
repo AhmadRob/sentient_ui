@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../configs/wrap_config.dart';
 
 /// An emotion-aware wrapper around Flutter's [Wrap] widget.
 ///

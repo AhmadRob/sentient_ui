@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../sentient_ui.dart';
-import '../foundation/emotion_theme.dart';
 
 /// A reactive widget that positions its child in a [Stack] and adapts its
 /// placement based on the user's emotional state.

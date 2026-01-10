@@ -400,7 +400,7 @@ class EmotionTheme {
 
   factory EmotionTheme.disgust() => EmotionTheme(
     emotionState: EmotionState.disgust,
-    surfaceColor: const Color(0xFFFFFFFFF),
+    surfaceColor: const Color(0xFFFFFFFF),
     surfaceVariantColor: const Color(0xFFF8F9FA),
     primaryColor: const Color(0xFF90A4AE),
     secondaryColor: const Color(0xFFB0BEC5),
