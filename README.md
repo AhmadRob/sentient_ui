@@ -47,7 +47,7 @@ This project explores how affective computing and interaction analytics can be e
 ## Demo
 
 <p align="center">
-  <img src="demo.gif" alt="Sentient UI in Action" width="300"/>
+  <img src="doc/assets/demo.gif" alt="Sentient UI in Action" width="300"/>
 </p>
 
 <p align="center">
