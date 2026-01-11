@@ -1,6 +1,6 @@
 name: sentient_ui
 description: "A Flutter package for emotion-aware adaptive user interfaces with on-device emotion detection and real-time UI adaptation."
-version: 0.1.1
+version: 0.1.2
 homepage: https://github.com/AhmadRob/sentient_ui
 repository: https://github.com/AhmadRob/sentient_ui.git
 issue_tracker: https://github.com/AhmadRob/sentient_ui/issues
