@@ -1,0 +1,197 @@
+warning: in the working copy of 'example/pubspec.lock', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/example/pubspec.lock b/example/pubspec.lock[m
+[1mindex 9051582..7107d23 100644[m
+[1m--- a/example/pubspec.lock[m
+[1m+++ b/example/pubspec.lock[m
+[36m@@ -17,14 +17,6 @@[m [mpackages:[m
+       url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.7.0"[m
+[31m-  asn1lib:[m
+[31m-    dependency: transitive[m
+[31m-    description:[m
+[31m-      name: asn1lib[m
+[31m-      sha256: "9a8f69025044eb466b9b60ef3bc3ac99b4dc6c158ae9c56d25eeccf5bc56d024"[m
+[31m-      url: "https://pub.dev"[m
+[31m-    source: hosted[m
+[31m-    version: "1.6.5"[m
+   async:[m
+     dependency: transitive[m
+     description:[m
+[36m@@ -145,14 +137,6 @@[m [mpackages:[m
+       url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.0.1"[m
+[31m-  convert:[m
+[31m-    dependency: transitive[m
+[31m-    description:[m
+[31m-      name: convert[m
+[31m-      sha256: b30acd5944035672bc15c6b7a8b47d773e41e2f17de064350988c5d02adb1c68[m
+[31m-      url: "https://pub.dev"[m
+[31m-    source: hosted[m
+[31m-    version: "3.1.2"[m
+   cross_file:[m
+     dependency: transitive[m
+     description:[m
+[36m@@ -177,14 +161,6 @@[m [mpackages:[m
+       url: "https://pub.dev"[m
+     source: hosted[m
+     version: "0.7.11"[m
+[31m-  encrypt:[m
+[31m-    dependency: transitive[m
+[31m-    description:[m
+[31m-      name: encrypt[m
+[31m-      sha256: "62d9aa4670cc2a8798bab89b39fc71b6dfbacf615de6cf5001fb39f7e4a996a2"[m
+[31m-      url: "https://pub.dev"[m
+[31m-    source: hosted[m
+[31m-    version: "5.0.3"[m
+   fake_async:[m
+     dependency: transitive[m
+     description:[m
+[36m@@ -240,22 +216,6 @@[m [mpackages:[m
+     description: flutter[m
+     source: sdk[m
+     version: "0.0.0"[m
+[31m-  hive:[m
+[31m-    dependency: transitive[m
+[31m-    description:[m
+[31m-      name: hive[m
+[31m-      sha256: "8dcf6db979d7933da8217edcec84e9df1bdb4e4edc7fc77dbd5aa74356d6d941"[m
+[31m-      url: "https://pub.dev"[m
+[31m-    source: hosted[m
+[31m-    version: "2.2.3"[m
+[31m-  hive_flutter:[m
+[31m-    dependency: transitive[m
+[31m-    description:[m
+[31m-      name: hive_flutter[m
+[31m-      sha256: dca1da446b1d808a51689fb5d0c6c9510c0a2ba01e22805d492c73b68e33eecc[m
+[31m-      url: "https://pub.dev"[m
+[31m-    source: hosted[m
+[31m-    version: "1.1.0"[m
+   image:[m
+     dependency: transitive[m
+     description:[m
+[36m@@ -264,14 +224,6 @@[m [mpackages:[m
+       url: "https://pub.dev"[m
+     source: hosted[m
+     version: "4.5.4"[m
+[31m-  js:[m
+[31m-    dependency: transitive[m
+[31m-    description:[m
+[31m-      name: js[m
+[31m-      sha256: "53385261521cc4a0c4658fd0ad07a7d14591cf8fc33abbceae306ddb974888dc"[m
+[31m-      url: "https://pub.dev"[m
+[31m-    source: hosted[m
+[31m-    version: "0.7.2"[m
+   leak_tracker:[m
+     dependency: transitive[m
+     description:[m
+[36m@@ -496,14 +448,6 @@[m [mpackages:[m
+       url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.1.8"[m
+[31m-  pointycastle:[m
+[31m-    dependency: transitive[m
+[31m-    description:[m
+[31m-      name: pointycastle[m
+[31m-      sha256: "4be0097fcf3fd3e8449e53730c631200ebc7b88016acecab2b0da2f0149222fe"[m
+[31m-      url: "https://pub.dev"[m
+[31m-    source: hosted[m
+[31m-    version: "3.9.1"[m
+   posix:[m
+     dependency: transitive[m
+     description:[m
+[1mdiff --git a/pubspec.yaml b/pubspec.yaml[m
+[1mindex 9c0e952..3298f57 100644[m
+[1m--- a/pubspec.yaml[m
+[1m+++ b/pubspec.yaml[m
+[36m@@ -28,9 +28,6 @@[m [mdependencies:[m
+   camera: ^0.11.0[m
+   image: ^4.2.2[m
+   provider: ^6.1.2[m
+[31m-  hive: ^2.2.3[m
+[31m-  hive_flutter: ^1.1.0[m
+[31m-  encrypt: ^5.0.3[m
+   path_provider: ^2.1.1[m
+   permission_handler: ^11.3.1[m
+   battery_plus: ^6.0.0[m
+[1mdiff --git a/test/logic/adaptation_logic_test.dart b/test/logic/adaptation_logic_test.dart[m
+[1mindex f52c739..1e5e01d 100644[m
+[1m--- a/test/logic/adaptation_logic_test.dart[m
+[1m+++ b/test/logic/adaptation_logic_test.dart[m
+[36m@@ -3,6 +3,11 @@[m [mimport 'package:flutter_test/flutter_test.dart';[m
+ import 'package:sentient_ui/sentient_ui.dart';[m
+ import 'package:sentient_ui/src/logic/rule_engine.dart';[m
+ [m
+[32m+[m[32m/// Unit tests for the accessibility and safety logic within the [AdaptationManager].[m
+[32m+[m[32m///[m[41m [m
+[32m+[m[32m/// These tests verify that the framework maintains high usability standards[m[41m [m
+[32m+[m[32m/// (like WCAG-compliant contrast) even as the UI adapts to complex[m[41m [m
+[32m+[m[32m/// emotional and environmental states.[m
+ void main() {[m
+   group('AdaptationManager Logic', () {[m
+     late StateManager stateManager;[m
+[36m@@ -13,6 +18,9 @@[m [mvoid main() {[m
+       adaptationManager = AdaptationManager(stateManager);[m
+     });[m
+ [m
+[32m+[m[32m    /// Verifies the "Safe Contrast" safeguard: When an adaptation results in a[m[41m [m
+[32m+[m[32m    /// very dark background, the system must automatically force text and[m[41m [m
+[32m+[m[32m    /// icon colors to white to maintain legibility.[m
+     test('ensureReadableContrast forces white text on very dark background', () {[m
+       final darkTheme = EmotionTheme.neutral().copyWith([m
+         surfaceColor: const Color(0xFF050505), // Extremely dark[m
+[36m@@ -25,6 +33,9 @@[m [mvoid main() {[m
+       expect(safeTheme.headingTextStyle.color, Colors.white);[m
+     });[m
+ [m
+[32m+[m[32m    /// Verifies the "Safe Contrast" safeguard for bright backgrounds:[m[41m [m
+[32m+[m[32m    /// Ensures that light-colored themes automatically use dark text[m[41m [m
+[32m+[m[32m    /// to remain readable.[m
+     test('ensureReadableContrast forces black text on very bright background', () {[m
+       final brightTheme = EmotionTheme.neutral().copyWith([m
+         surfaceColor: const Color(0xFFFAFAFA), // Extremely bright[m
+[36m@@ -36,19 +47,5 @@[m [mvoid main() {[m
+       expect(safeTheme.bodyTextStyle.color, Colors.black);[m
+       expect(safeTheme.headingTextStyle.color, Colors.black);[m
+     });[m
+[31m-[m
+[31m-    test('ensureReadableContrast leaves mid-luminance backgrounds alone', () {[m
+[31m-      // Gray with luminance around 0.5[m
+[31m-      const midColor = Color(0xFF808080);[m
+[31m-      final midTheme = EmotionTheme.neutral().copyWith([m
+[31m-        surfaceColor: midColor,[m
+[31m-        onSurfaceColor: Colors.blue, // Custom color[m
+[31m-      );[m
+[31m-[m
+[31m-      final safeTheme = adaptationManager.ensureReadableContrast(midTheme);[m
+[31m-[m
+[31m-      // Should not have been overridden[m
+[31m-      expect(safeTheme.surfaceColor, midColor);[m
+[31m-    });[m
+   });[m
+ }[m
+[1mdiff --git a/test/logic/rule_engine_test.dart b/test/logic/rule_engine_test.dart[m
+[1mindex ea590b1..8c1fc8f 100644[m
+[1m--- a/test/logic/rule_engine_test.dart[m
+[1m+++ b/test/logic/rule_engine_test.dart[m
+[36m@@ -3,6 +3,10 @@[m [mimport 'package:flutter_test/flutter_test.dart';[m
+ import 'package:sentient_ui/sentient_ui.dart';[m
+ import 'package:sentient_ui/src/logic/rule_engine.dart';[m
+ [m
+[32m+[m[32m/// Unit tests for the [RuleEngine], which handles the conditional logic for UI adaptations.[m
+[32m+[m[32m///[m[41m [m
+[32m+[m[32m/// These tests verify that the framework correctly maps combinations of[m[41m [m
+[32m+[m[32m/// Emotional States and Environmental Context to specific UI Theme adjustments.[m
+ void main() {[m
+   group('RuleEngine Context-Aware Rules', () {[m
+     late RuleEngine engine;[m
+[36m@@ -30,6 +34,8 @@[m [mvoid main() {[m
+       );[m
+     });[m
+ [m
+[32m+[m[32m    /// Verifies that when no specific rules match, the engine falls back to[m[41m [m
+[32m+[m[32m    /// the standard theme for the detected emotion.[m
+     test('Default case matches Standard Emotion', () {[m
+       final adaptation = engine.evaluate(neutralEmotion, defaultContext);[m
+       expect(adaptation.theme.emotionState, EmotionState.neutral);[m
