@@ -167,8 +167,12 @@
         
         .doc-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(1, 151, 246, 0.4);
+            border-color: rgba(183, 183, 183, 0.4);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .doc-card.completed:hover {
+            border-color: rgba(1, 151, 246, 0.4);
         }
         
         /* Form Input */
@@ -440,7 +444,7 @@
 
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Quick Start Card -->
-                    <div class="doc-card p-8">
+                    <div class="doc-card completed p-8">
                         <div class="text-pubBlue mb-6">
                             <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
@@ -453,14 +457,19 @@
                             Step-by-step installation, basic configuration, and your first adaptive component.
                         </p>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm text-pubBlue font-semibold">Status: In Development</span>
-                            <span class="text-xs text-midGray">2 weeks</span>
+                            <span class="text-sm text-pubBlue font-semibold">Status: Completed</span>
+                            <a href="quickstart.html" class="text-xs text-pubBlue hover:text-pubBlueDark font-semibold uppercase tracking-wider flex items-center gap-1 transition-colors">
+                                View Guide
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
                         </div>
                     </div>
 
                     <!-- API Reference Card -->
                     <div class="doc-card p-8">
-                        <div class="text-pubBlue mb-6">
+                        <div class="text-midGray mb-6">
                             <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                       d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
@@ -472,14 +481,14 @@
                             Searchable, with examples and detailed explanations of parameters and return values.
                         </p>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm text-pubBlue font-semibold">Status: Planning</span>
+                            <span class="text-sm text-midGray font-semibold">Status: Planning</span>
                             <span class="text-xs text-midGray">4 weeks</span>
                         </div>
                     </div>
 
                     <!-- Advanced Guides Card -->
                     <div class="doc-card p-8">
-                        <div class="text-pubBlue mb-6">
+                        <div class="text-midGray mb-6">
                             <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                       d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
@@ -491,7 +500,7 @@
                             and integration with existing Flutter applications.
                         </p>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm text-pubBlue font-semibold">Status: Planned</span>
+                            <span class="text-sm text-midGray font-semibold">Status: Planned</span>
                             <span class="text-xs text-midGray">6 weeks</span>
                         </div>
                     </div>

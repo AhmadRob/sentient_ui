@@ -103,7 +103,7 @@ Add the dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  sentient_ui: ^0.1.0
+  sentient_ui: ^0.1.2
 ```
 
 ---

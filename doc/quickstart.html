@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start Guide | Sentient UI</title>
+    <!-- Favicon setup -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico">
+    <meta name="theme-color" content="#161616">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkGray: '#161616',
+                        midGray: '#b7b7b7',
+                        softWhite: '#f0f0f0',
+                        pureBlack: '#020202',
+                        pubBlue: '#0175c2',
+                        pubBlueLight: '#0197f6',
+                        pubBlueDark: '#01579b',
+                    },
+                    fontFamily: {
+                        header: ['Playfair Display', 'serif'],
+                        body: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            background-color: #f0f0f0; 
+            color: #161616; 
+            overflow-x: hidden;
+            cursor: default;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        /* Glass overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+        }
+        
+        /* Code Block Styling */
+        .code-block {
+            background: rgba(22, 22, 22, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+        }
+        
+        .code-header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .code-language {
+            color: #0197f6;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .copy-button {
+            background: rgba(1, 151, 246, 0.2);
+            color: #0197f6;
+            border: 1px solid rgba(1, 151, 246, 0.3);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-button:hover {
+            background: rgba(1, 151, 246, 0.3);
+            transform: translateY(-1px);
+        }
+        
+        .copy-button.copied {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+        
+        pre[class*="language-"] {
+            margin: 0;
+            padding: 20px;
+            background: transparent !important;
+        }
+        
+        code[class*="language-"] {
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        
+        /* Step Counter */
+        .step-number {
+            background: linear-gradient(135deg, #0175c2, #0197f6);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(1, 151, 246, 0.3);
+        }
+        
+        /* Info Box */
+        .info-box {
+            background: rgba(1, 151, 246, 0.1);
+            border-left: 4px solid #0197f6;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: rgba(234, 179, 8, 0.1);
+            border-left: 4px solid #eab308;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .success-box {
+            background: rgba(34, 197, 94, 0.1);
+            border-left: 4px solid #22c55e;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        /* Navigation */
+        .docs-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-link {
+            position: relative;
+            padding: 8px 16px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 80%;
+            height: 2px;
+            background: #161616;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+        
+        .nav-link.active {
+            color: #0175c2;
+        }
+        
+        .nav-link.active::after {
+            background: #0175c2;
+            transform: translateX(-50%) scaleX(1);
+        }
+        
+        /* Glass Button */
+        .glass-button {
+            background: rgba(22, 22, 22, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        
+        .glass-button:hover {
+            background: rgba(2, 2, 2, 1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Table of Contents */
+        .toc-link {
+            display: block;
+            padding: 8px 16px;
+            color: #161616;
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .toc-link:hover {
+            background: rgba(1, 151, 246, 0.1);
+            border-left-color: #0197f6;
+            padding-left: 20px;
+        }
+        
+        .toc-link.active {
+            color: #0175c2;
+            border-left-color: #0175c2;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .docs-footer {
+            background: linear-gradient(180deg, rgba(2, 2, 2, 0.95), rgba(22, 22, 22, 0.98));
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Selection */
+        ::selection {
+            background-color: #FFD93D;
+            color: #161616;
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(1, 151, 246, 0.3);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(1, 151, 246, 0.5);
+        }
+        
+        /* Infinity Loop */
+        .infinity-loop {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 5s infinite ease-in-out;
+        }
+        
+        @keyframes draw {
+            0% { stroke-dashoffset: 1000; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -1000; }
+        }
+        
+        /* Parameter List */
+        .param-item {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border-left: 3px solid #0197f6;
+        }
+        
+        .param-name {
+            font-family: 'Courier New', monospace;
+            color: #0175c2;
+            font-weight: 600;
+        }
+        
+        .param-type {
+            font-family: 'Courier New', monospace;
+            color: #b7b7b7;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="font-body">
+
+    <!-- Navigation -->
+    <nav class="docs-nav fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center gap-3">
+                    <svg width="32" height="16" viewBox="0 0 100 50">
+                        <path d="M25 25 C25 10, 45 10, 50 25 C55 40, 75 40, 75 25 C75 10, 55 10, 50 25 C45 40, 25 40, 25 25" 
+                              fill="none" stroke="#161616" stroke-width="3" class="infinity-loop"/>
+                    </svg>
+                    <span class="font-header text-lg tracking-tight">SENTIENT UI</span>
+                    <span class="text-xs text-midGray uppercase tracking-widest ml-2">Quick Start</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-2">
+                    <a href="docs.html" class="glass-button px-6 py-2 rounded-full text-sm">
+                        ← Back to Docs
+                    </a>
+                </div>
+
+                <button id="mobileMenuBtn" class="md:hidden p-2">
+                    <svg id="hamburgerIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pt-4 border-t border-gray-200">
+                <div class="flex flex-col gap-3">
+                    <a href="index.html" class="glass-button px-6 py-3 rounded-full text-center">
+                        Home
+                    </a>
+                    <a href="docs.html" class="glass-button px-6 py-3 rounded-full text-center">
+                        Documentation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-20">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid lg:grid-cols-12 gap-8">
+                
+                <!-- Table of Contents (Sidebar) -->
+                <aside class="lg:col-span-3 hidden lg:block">
+                    <div class="sticky top-24">
+                        <div class="glass-card p-6">
+                            <h3 class="font-header text-lg text-darkGray mb-4">Contents</h3>
+                            <nav class="space-y-1">
+                                <a href="#overview" class="toc-link active">Overview</a>
+                                <a href="#prerequisites" class="toc-link">Prerequisites</a>
+                                <a href="#installation" class="toc-link">Installation</a>
+                                <a href="#basic-setup" class="toc-link">Basic Setup</a>
+                                <a href="#configuration" class="toc-link">Configuration</a>
+                                <a href="#first-run" class="toc-link">First Run</a>
+                                <a href="#next-steps" class="toc-link">Next Steps</a>
+                            </nav>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="lg:col-span-9">
+                    
+                    <!-- Hero Section -->
+                    <section id="overview" class="mb-16">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-px bg-midGray"></div>
+                            <span class="text-sm text-midGray uppercase tracking-widest">Get Started in 5 Minutes</span>
+                            <div class="flex-1 h-px bg-midGray"></div>
+                        </div>
+                        
+                        <h1 class="font-header text-5xl md:text-6xl text-darkGray mb-6">Quick Start Guide</h1>
+                        
+                        <p class="text-xl text-midGray mb-8 leading-relaxed">
+                            Get Sentient UI running in your Flutter project with emotion-adaptive theming, 
+                            intelligent UI responses, and seamless user experience enhancements.
+                        </p>
+
+                        <div class="success-box">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <div>
+                                    <p class="font-semibold text-green-800 mb-1">What You'll Build</p>
+                                    <p class="text-green-700 text-sm">
+                                        A Flutter app with emotion detection, context awareness, and adaptive UI that responds 
+                                        intelligently to user state and behavior.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Prerequisites -->
+                    <section id="prerequisites" class="mb-16">
+                        <div class="glass-card p-8">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="step-number">1</div>
+                                <h2 class="font-header text-3xl text-darkGray">Prerequisites</h2>
+                            </div>
+
+                            <p class="text-midGray mb-6">
+                                Before you begin, ensure you have the following installed and configured:
+                            </p>
+
+                            <div class="space-y-4">
+                                <div class="param-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="param-name">Flutter SDK</span>
+                                        <span class="param-type">≥ 3.0.0</span>
+                                    </div>
+                                    <p class="text-sm text-midGray">Latest stable Flutter installation with Dart support</p>
+                                </div>
+
+                                <div class="param-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="param-name">Dart SDK</span>
+                                        <span class="param-type">≥ 3.0.0</span>
+                                    </div>
+                                    <p class="text-sm text-midGray">Included with Flutter, verify with <code>dart --version</code></p>
+                                </div>
+
+                                <div class="param-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="param-name">Camera & Microphone Permissions</span>
+                                        <span class="param-type">iOS/Android</span>
+                                    </div>
+                                    <p class="text-sm text-midGray">Device capabilities for emotion and context sensing</p>
+                                </div>
+
+                                <div class="param-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="param-name">Provider Package</span>
+                                        <span class="param-type">^6.0.0</span>
+                                    </div>
+                                    <p class="text-sm text-midGray">State management dependency (automatically included)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Installation -->
+                    <section id="installation" class="mb-16">
+                        <div class="glass-card p-8">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="step-number">2</div>
+                                <h2 class="font-header text-3xl text-darkGray">Installation</h2>
+                            </div>
+
+                            <p class="text-midGray mb-6">
+                                Add Sentient UI to your Flutter project using the Flutter CLI.
+                            </p>
+
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-language">Terminal</span>
+                                    <button class="copy-button" onclick="copyCode(this, 'code-install')">Copy</button>
+                                </div>
+                                <pre><code id="code-install" class="language-bash">flutter pub add sentient_ui</code></pre>
+                            </div>
+
+                            <p class="text-midGray mt-4 text-sm">
+                                This command automatically adds the package to your <code>pubspec.yaml</code> and runs <code>flutter pub get</code>.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Basic Setup -->
+                    <section id="basic-setup" class="mb-16">
+                        <div class="glass-card p-8">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="step-number">3</div>
+                                <h2 class="font-header text-3xl text-darkGray">Basic Setup</h2>
+                            </div>
+
+                            <p class="text-midGray mb-6">
+                                Replace your standard <code>MaterialApp</code> with <code>SentientApp</code> 
+                                to enable emotion-adaptive functionality.
+                            </p>
+
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-language">lib/main.dart</span>
+                                    <button class="copy-button" onclick="copyCode(this, 'code-main')">Copy</button>
+                                </div>
+                                <pre><code id="code-main" class="language-dart">import 'package:flutter/material.dart';
+import 'package:sentient_ui/sentient_ui.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SentientApp(
+      title: 'My Sentient App',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
+      ),
+      home: const MyHomeScreen(),
+    );
+  }
+}
+
+class MyHomeScreen extends StatelessWidget {
+  const MyHomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home'),
+      ),
+      body: const Center(
+        child: Text('Welcome to Sentient UI!'),
+      ),
+    );
+  }
+}</code></pre>
+                            </div>
+
+                            <div class="info-box mt-6">
+                                <div class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="font-semibold text-blue-800 mb-1">What Just Happened?</p>
+                                        <p class="text-blue-700 text-sm">
+                                            <code>SentientApp</code> automatically initializes the emotion detection engine, 
+                                            manages permissions, and wraps your app with adaptive theming capabilities.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Configuration -->
+                    <section id="configuration" class="mb-16">
+                        <div class="glass-card p-8">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="step-number">4</div>
+                                <h2 class="font-header text-3xl text-darkGray">Configuration Options</h2>
+                            </div>
+
+                            <p class="text-midGray mb-6">
+                                Customize Sentient UI's behavior with these optional parameters:
+                            </p>
+
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-language">Advanced Configuration</span>
+                                    <button class="copy-button" onclick="copyCode(this, 'code-config')">Copy</button>
+                                </div>
+                                <pre><code id="code-config" class="language-dart">return SentientApp(
+  title: 'My Sentient App',
+  theme: ThemeData.light(),
+  
+  // Enable/disable emotion-adaptive theming
+  enableEmotionTheming: true,
+  
+  // How often to sample emotion and context
+  captureInterval: const Duration(seconds: 30),
+  
+  // Initial feature states (user can override in consent screen)
+  enableEmotionDetection: true,
+  enableContextSensing: true,
+  enableBehaviorTracking: true,
+  
+  // Hide debug banner
+  debugShowCheckedModeBanner: false,
+  
+  home: const MyHomeScreen(),
+);</code></pre>
+                            </div>
+
+                            <h3 class="font-header text-2xl text-darkGray mt-8 mb-4">Parameter Reference</h3>
+
+                            <div class="space-y-3">
+                                <div class="param-item">
+                                    <div class="mb-2">
+                                        <span class="param-name">enableEmotionTheming</span>
+                                        <span class="param-type ml-2">bool</span>
+                                        <span class="text-xs text-midGray ml-2">(default: true)</span>
+                                    </div>
+                                    <p class="text-sm text-midGray">
+                                        Automatically adapts your app's theme based on detected emotions. When enabled, 
+                                        the UI smoothly transitions between emotional states (calm, excited, stressed).
+                                    </p>
+                                </div>
+
+                                <div class="param-item">
+                                    <div class="mb-2">
+                                        <span class="param-name">captureInterval</span>
+                                        <span class="param-type ml-2">Duration</span>
+                                        <span class="text-xs text-midGray ml-2">(default: 30 seconds, min: 30s)</span>
+                                    </div>
+                                    <p class="text-sm text-midGray">
+                                        Controls sampling frequency for emotion and context detection. Shorter intervals 
+                                        increase responsiveness but consume more battery. The engine enforces a 30-second 
+                                        minimum to ensure reliable Bayesian filtering.
+                                    </p>
+                                </div>
+
+                                <div class="param-item">
+                                    <div class="mb-2">
+                                        <span class="param-name">enableEmotionDetection</span>
+                                        <span class="param-type ml-2">bool</span>
+                                        <span class="text-xs text-midGray ml-2">(default: true)</span>
+                                    </div>
+                                    <p class="text-sm text-midGray">
+                                        Initial state for camera-based emotion detection. Users can disable this 
+                                        during the consent flow. Detects facial expressions to infer emotional state.
+                                    </p>
+                                </div>
+
+                                <div class="param-item">
+                                    <div class="mb-2">
+                                        <span class="param-name">enableContextSensing</span>
+                                        <span class="param-type ml-2">bool</span>
+                                        <span class="text-xs text-midGray ml-2">(default: true)</span>
+                                    </div>
+                                    <p class="text-sm text-midGray">
+                                        Initial state for microphone and sensor-based context awareness. Analyzes 
+                                        ambient sound and device sensors to understand user environment.
+                                    </p>
+                                </div>
+
+                                <div class="param-item">
+                                    <div class="mb-2">
+                                        <span class="param-name">enableBehaviorTracking</span>
+                                        <span class="param-type ml-2">bool</span>
+                                        <span class="text-xs text-midGray ml-2">(default: true)</span>
+                                    </div>
+                                    <p class="text-sm text-midGray">
+                                        Initial state for gesture and interaction tracking. Monitors taps, swipes, 
+                                        and navigation patterns to refine emotional predictions.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="warning-box mt-6">
+                                <div class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="font-semibold text-yellow-800 mb-1">Privacy Note</p>
+                                        <p class="text-yellow-700 text-sm">
+                                            All emotion and context data is processed locally on-device. No data is 
+                                            transmitted to external servers. Users can revoke permissions at any time 
+                                            through the app settings.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- First Run -->
+                    <section id="first-run" class="mb-16">
+                        <div class="glass-card p-8">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="step-number">5</div>
+                                <h2 class="font-header text-3xl text-darkGray">First Run Experience</h2>
+                            </div>
+
+                            <p class="text-midGray mb-6">
+                                On first launch, users will see the <code>SentientConsentView</code> — a permission 
+                                and configuration screen that explains the framework's capabilities.
+                            </p>
+
+                            <h3 class="font-header text-xl text-darkGray mb-4">What Happens Behind the Scenes</h3>
+
+                            <div class="space-y-4 mb-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                        <span class="text-blue-600 font-semibold text-sm">1</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-darkGray mb-1">Configuration Check</p>
+                                        <p class="text-sm text-midGray">
+                                            <code>SentientEngine</code> attempts to restore previous configuration 
+                                            from local storage (SharedPreferences).
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                        <span class="text-blue-600 font-semibold text-sm">2</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-darkGray mb-1">Consent Screen</p>
+                                        <p class="text-sm text-midGray">
+                                            If no configuration exists, the consent view displays with toggles for 
+                                            emotion detection, context sensing, and behavior tracking.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                        <span class="text-blue-600 font-semibold text-sm">3</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-darkGray mb-1">Permission Requests</p>
+                                        <p class="text-sm text-midGray">
+                                            After user consent, iOS/Android system permission dialogs appear for 
+                                            camera and microphone access.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                        <span class="text-blue-600 font-semibold text-sm">4</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-darkGray mb-1">Engine Initialization</p>
+                                        <p class="text-sm text-midGray">
+                                            The <code>SentientEngine</code> initializes all managers (emotion, context, 
+                                            adaptation) and begins the capture loop.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                        <span class="text-blue-600 font-semibold text-sm">5</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-darkGray mb-1">App Launch</p>
+                                        <p class="text-sm text-midGray">
+                                            Your <code>home</code> widget loads with emotion-adaptive theming active. 
+                                            Configuration persists for future launches.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="font-semibold text-blue-800 mb-1">Returning Users</p>
+                                        <p class="text-blue-700 text-sm">
+                                            After initial setup, the consent screen is skipped on subsequent launches. 
+                                            Users can modify permissions through your app's settings or device settings.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Next Steps -->
+                    <section id="next-steps" class="mb-16">
+                        <div class="glass-card p-8">
+                            <div class="flex items-center gap-4 mb-6">
+                                <svg class="w-12 h-12 text-pubBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                </svg>
+                                <h2 class="font-header text-3xl text-darkGray">Next Steps</h2>
+                            </div>
+
+                            <p class="text-midGray mb-6">
+                                Now that you have Sentient UI running, explore advanced features and customization:
+                            </p>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="p-6 bg-white/50 rounded-lg border-l-4 border-pubBlue">
+                                    <h3 class="font-semibold text-darkGray mb-2">Access Emotional State</h3>
+                                    <p class="text-sm text-midGray mb-3">
+                                        Read current emotion data to customize your UI logic
+                                    </p>
+                                    <div class="code-block">
+                                        <pre><code class="language-dart text-xs">final engine = context.read&lt;SentientEngine&gt;();
+final emotion = engine.currentEmotion;</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="p-6 bg-white/50 rounded-lg border-l-4 border-pubBlue">
+                                    <h3 class="font-semibold text-darkGray mb-2">Custom Themes</h3>
+                                    <p class="text-sm text-midGray mb-3">
+                                        Override default emotion themes with your brand colors
+                                    </p>
+                                    <div class="code-block">
+                                        <pre><code class="language-dart text-xs">EmotionTheme.calm.copyWith(
+  primaryColor: Colors.teal,
+);</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="p-6 bg-white/50 rounded-lg border-l-4 border-pubBlue">
+                                    <h3 class="font-semibold text-darkGray mb-2">Listen to Changes</h3>
+                                    <p class="text-sm text-midGray mb-3">
+                                        React to emotion state updates in real-time
+                                    </p>
+                                    <div class="code-block">
+                                        <pre><code class="language-dart text-xs">Consumer&lt;AdaptationManager&gt;(
+  builder: (context, mgr, _) {
+    return Text(mgr.emotionLabel);
+  },
+);</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="p-6 bg-white/50 rounded-lg border-l-4 border-pubBlue">
+                                    <h3 class="font-semibold text-darkGray mb-2">Disable Features</h3>
+                                    <p class="text-sm text-midGray mb-3">
+                                        Dynamically enable/disable detection at runtime
+                                    </p>
+                                    <div class="code-block">
+                                        <pre><code class="language-dart text-xs">engine.updateConfig(
+  enableEmotionDetection: false,
+);</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 pt-8 border-t border-gray-200">
+                                <h3 class="font-header text-xl text-darkGray mb-4">Additional Resources</h3>
+                                <div class="space-y-3">
+                                    <a href="#" class="flex items-center gap-3 text-pubBlue hover:text-pubBlueDark transition-colors">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                        </svg>
+                                        <span>API Reference (Coming Soon)</span>
+                                    </a>
+                                    <a href="#" class="flex items-center gap-3 text-pubBlue hover:text-pubBlueDark transition-colors">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                        </svg>
+                                        <span>Advanced Guides (Coming Soon)</span>
+                                    </a>
+                                    <a href="https://github.com/AhmadRob/sentient_ui" class="flex items-center gap-3 text-pubBlue hover:text-pubBlueDark transition-colors">
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                        </svg>
+                                        <span>GitHub Repository</span>
+                                    </a>
+                                    <a href="index.html#research" class="flex items-center gap-3 text-pubBlue hover:text-pubBlueDark transition-colors">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                        </svg>
+                                        <span>Research Background</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Support Section -->
+                    <section class="glass-card p-8 bg-gradient-to-br from-pubBlue/5 to-transparent">
+                        <div class="flex items-start gap-6">
+                            <svg class="w-16 h-16 text-pubBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-header text-2xl text-darkGray mb-2">Need Help?</h3>
+                                <p class="text-midGray mb-4">
+                                    Having trouble getting started? We're here to help. Check out these resources 
+                                    or reach out to the community.
+                                </p>
+                                <div class="flex flex-wrap gap-3">
+                                    <a href="https://github.com/AhmadRob/sentient_ui/issues" class="glass-button px-5 py-2 rounded-full text-sm inline-flex items-center gap-2">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                        </svg>
+                                        Report an Issue
+                                    </a>
+                                    <a href="https://github.com/AhmadRob/sentient_ui/discussions" class="glass-button px-5 py-2 rounded-full text-sm inline-flex items-center gap-2">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                                        </svg>
+                                        Join Discussion
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="docs-footer py-12 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center">
+                <a href="index.html" class="inline-flex items-center gap-3 mb-8">
+                    <svg width="24" height="12" viewBox="0 0 100 50">
+                        <path d="M25 25 C25 10, 45 10, 50 25 C55 40, 75 40, 75 25 C75 10, 55 10, 50 25 C45 40, 25 40, 25 25" 
+                              fill="none" stroke="#f0f0f0" stroke-width="2"/>
+                    </svg>
+                    <span class="font-header text-lg text-softWhite">SENTIENT UI</span>
+                </a>
+
+                <div class="text-xs tracking-widest text-midGray uppercase mb-4">
+                    Quick Start Guide
+                </div>
+                <div class="text-sm text-midGray mb-8">
+                    &copy; 2026 Sentient UI Framework | Jordan University of Science and Technology
+                </div>
+
+                <div class="flex justify-center gap-6">
+                    <a href="index.html" class="text-sm text-midGray hover:text-softWhite transition-colors duration-300">Home</a>
+                    <a href="docs.html" class="text-sm text-midGray hover:text-softWhite transition-colors duration-300">Documentation</a>
+                    <a href="index.html#research" class="text-sm text-midGray hover:text-softWhite transition-colors duration-300">Research</a>
+                    <a href="https://github.com/AhmadRob/sentient_ui" class="text-sm text-midGray hover:text-softWhite transition-colors duration-300">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-dart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+
+    <script>
+        // Copy code functionality
+        function copyCode(button, codeId) {
+            const code = document.getElementById(codeId).textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = 'Copied';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Smooth scroll with offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    const offset = 100;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update active TOC link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const tocLinks = document.querySelectorAll('.toc-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Mobile menu
+        document.getElementById('mobileMenuBtn')?.addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburgerIcon = document.getElementById('hamburgerIcon');
+            const closeIcon = document.getElementById('closeIcon');
+            
+            mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
