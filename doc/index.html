@@ -1312,7 +1312,7 @@
         </div>
     </section>
 
-    <!-- Research Paper – Portfolio Version -->
+    <!-- Research Paper – Portfolio Version (UPDATED) -->
     <section id="paper" class="py-24 bg-darkGray text-softWhite glass-overlay">
         <div class="container mx-auto px-6 relative z-10">
 
@@ -1332,301 +1332,69 @@
 
             <div class="max-w-5xl mx-auto">
                 <div class="glass-card p-8 bg-darkGray/50 backdrop-blur-lg border border-white/10">
-                    <!-- Preview Card -->
-                    <div class="relative group cursor-pointer" onclick="openPaperModal()">
-                        <div
-                            class="bg-gradient-to-br from-darkGray to-darkGray/70 border border-white/10 rounded-lg overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-[1.02]">
+                    <!-- Card Content - now only the abstract and a link to IEEE -->
+                    <div class="bg-gradient-to-br from-darkGray to-darkGray/70 border border-white/10 rounded-lg overflow-hidden shadow-lg">
+                        <div class="p-12 space-y-6 text-softWhite">
 
-                            <div class="p-12 space-y-6 text-softWhite">
+                            <!-- Title -->
+                            <div class="text-center">
+                                <h3 class="text-2xl font-header text-softWhite mb-2">
+                                    Sentient UI: Bridging Emotion, Behavior, and Context
+                                </h3>
+                                <p class="text-sm text-midGray">
+                                    A Modular On-Device Framework for Adaptive User Interfaces
+                                </p>
+                            </div>
 
-                                <!-- Title -->
-                                <div class="text-center">
-                                    <h3 class="text-2xl font-header text-softWhite mb-2">
-                                        Sentient UI: Bridging Emotion, Behavior, and Context
-                                    </h3>
-                                    <p class="text-sm text-midGray">
-                                        A Modular On-Device Framework for Adaptive User Interfaces
-                                    </p>
-                                </div>
+                            <!-- Abstract Preview (Research Summary only) -->
+                            <div class="text-sm text-softWhite/80 leading-relaxed space-y-3">
+                                <p class="font-semibold text-softWhite">RESEARCH SUMMARY</p>
+                                <p>
+                                    Sentient UI investigates how adaptive user interfaces can be
+                                    engineered using clean architectural separation and on-device
+                                    processing. The framework integrates emotional state modeling,
+                                    behavioral analysis, and contextual awareness to drive real-time
+                                    visual adaptation while preserving privacy and developer control.
+                                </p>
 
-                                <!-- Abstract Preview -->
-                                <div class="text-sm text-softWhite/80 leading-relaxed space-y-3">
-                                    <p class="font-semibold text-softWhite">RESEARCH SUMMARY</p>
-                                    <p>
-                                        Sentient UI investigates how adaptive user interfaces can be
-                                        engineered using clean architectural separation and on-device
-                                        processing. The framework integrates emotional state modeling,
-                                        behavioral analysis, and contextual awareness to drive real-time
-                                        visual adaptation while preserving privacy and developer control.
-                                    </p>
-
-                                    <div
-                                        class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 pt-6 border-t border-midGray/30">
-                                        <div>
-                                            <p class="font-semibold mb-2 text-softWhite">Architecture</p>
-                                            <p class="text-softWhite/70">
-                                                A layered design separating signal detection, processing,
-                                                adaptation logic, and UI integration for extensibility and
-                                                maintainability.
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <p class="font-semibold mb-2 text-softWhite">Validation</p>
-                                            <p class="text-softWhite/70">
-                                                A Flutter-based proof-of-concept demonstrating smooth,
-                                                real-time visual adaptation under simulated emotional states.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Hover Overlay -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-darkGray/95 via-darkGray/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                                    <div class="text-center p-8">
-                                        <svg class="w-16 h-16 mx-auto mb-4 text-softWhite" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                                            </path>
-                                        </svg>
-                                        <p class="text-softWhite text-xl font-header mb-2">
-                                            View Research Paper
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 pt-6 border-t border-midGray/30">
+                                    <div>
+                                        <p class="font-semibold mb-2 text-softWhite">Architecture</p>
+                                        <p class="text-softWhite/70">
+                                            A layered design separating signal detection, processing,
+                                            adaptation logic, and UI integration for extensibility and
+                                            maintainability.
                                         </p>
-                                        <p class="text-softWhite/80 text-sm">
-                                            Architectural details & technical discussion
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold mb-2 text-softWhite">Validation</p>
+                                        <p class="text-softWhite/70">
+                                            A Flutter-based proof-of-concept demonstrating smooth,
+                                            real-time visual adaptation under simulated emotional states.
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="mt-6 flex justify-center">
-                            <button onclick="openPaperModal(); event.stopPropagation();"
-                                class="glass-button text-softWhite px-6 py-3 rounded-full hover:scale-105 transition-transform duration-300 border border-white/20">
-                                Open Paper
-                            </button>
+                            <!-- Button to IEEE Xplore (replaces "Open Paper" and PDF download) -->
+                            <div class="mt-8 text-center">
+                                <a href="https://ieeexplore.ieee.org/document/11567670"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="glass-button text-softWhite px-6 py-3 rounded-full hover:scale-105 transition-transform duration-300 border border-white/20 inline-flex items-center gap-2">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                    </svg>
+                                    View on IEEE Xplore
+                                </a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Replace the entire paper modal section (from line 960 to line 1360) with this: -->
-
-    <!-- Fullscreen Paper Modal -->
-    <div id="paperModal" class="fixed inset-0 bg-black/95 z-[10000] hidden" onclick="closePaperModal()">
-        <div class="relative w-full h-full flex flex-col">
-            <!-- Modal Header - Fixed at top -->
-            <div
-                class="flex-none bg-darkGray text-white p-4 flex items-center justify-between border-b border-gray-700">
-                <h3 class="font-header text-xl">
-                    Sentient UI: Research Paper
-                </h3>
-                <button onclick="closePaperModal()"
-                    class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300 text-white">
-                    ✕
-                </button>
-            </div>
-
-            <!-- Modal Content - Scrollable -->
-            <div class="flex-1 overflow-hidden" onclick="event.stopPropagation()">
-                <div class="h-full overflow-auto p-4 md:p-6">
-                    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl">
-
-                        <!-- Paper Header Section -->
-                        <div class="p-6 md:p-8 border-b border-gray-200 bg-gray-50">
-                            <div class="text-center">
-                                <h1 class="text-2xl md:text-3xl font-header text-darkGray mb-3 leading-tight">
-                                    Sentient UI: Emotion-Aware Interface Adaptation
-                                </h1>
-                                <p class="text-base text-midGray mb-2">
-                                    A Modular Framework for Dynamic User Interfaces
-                                </p>
-                                <div
-                                    class="flex flex-col md:flex-row justify-center items-center gap-2 text-sm text-midGray mt-4">
-                                    <span>Jordan University of Science and Technology</span>
-                                    <span class="hidden md:inline">•</span>
-                                    <span>December 2025</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Paper Content -->
-                        <div class="p-6 md:p-8 space-y-8">
-                            <!-- ABSTRACT -->
-                            <section class="space-y-3">
-                                <h2 class="text-xl font-header text-darkGray border-l-4 border-pubBlue pl-3">
-                                    ABSTRACT
-                                </h2>
-                                <p class="text-justify leading-relaxed text-darkGray/90">
-                                    This paper presents <strong>Sentient UI</strong>, a Flutter-based framework for
-                                    emotion-aware user interface adaptation that operates entirely on-device.
-                                    The framework introduces a modular architecture that separates emotion
-                                    recognition, behavioral tracking, contextual awareness, adaptation logic,
-                                    and UI integration. A proof-of-concept demonstration illustrates real-time
-                                    visual adaptation under simulated emotional states, validating architectural
-                                    feasibility while preserving user privacy and avoiding reliance on external
-                                    cloud services. The work emphasizes engineering design and system architecture
-                                    rather than large-scale user evaluation.
-                                </p>
-                            </section>
-
-                            <!-- INTRODUCTION -->
-                            <section class="space-y-3">
-                                <h2 class="text-xl font-header text-darkGray border-l-4 border-pubBlue pl-3">
-                                    1. INTRODUCTION
-                                </h2>
-                                <p class="text-justify leading-relaxed text-darkGray/90">
-                                    Contemporary user interfaces remain largely static, providing limited
-                                    responsiveness to variations in user emotion, interaction behavior, or
-                                    situational context. While adaptive user interfaces have been explored
-                                    extensively in academic research, their practical adoption is constrained
-                                    by architectural complexity, privacy concerns, and integration overhead.
-                                </p>
-                                <p class="text-justify leading-relaxed text-darkGray/90">
-                                    Sentient UI addresses these limitations by proposing a clean, modular
-                                    architecture that enables emotion-aware adaptation directly within
-                                    Flutter applications. By prioritizing on-device processing and explicit
-                                    developer control, the framework aims to bridge the gap between adaptive
-                                    UI research and real-world software engineering practice.
-                                </p>
-                            </section>
-
-                            <!-- SYSTEM ARCHITECTURE -->
-                            <section class="space-y-3">
-                                <h2 class="text-xl font-header text-darkGray border-l-4 border-pubBlue pl-3">
-                                    2. SYSTEM ARCHITECTURE
-                                </h2>
-                                <p class="text-justify leading-relaxed text-darkGray/90 mb-4">
-                                    Sentient UI follows Clean Architecture principles and is structured into
-                                    clearly defined layers, each with distinct responsibilities and interfaces.
-                                    This separation of concerns promotes maintainability, extensibility, and
-                                    independent evolution of system components.
-                                </p>
-                                <ul class="space-y-2 ml-4">
-                                    <li class="flex items-start">
-                                        <span class="text-pubBlue mr-2">•</span>
-                                        <span><strong>Input Detection Layer:</strong> Captures emotional signals,
-                                            behavioral interaction metrics, and contextual data using on-device
-                                            mechanisms.</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="text-pubBlue mr-2">•</span>
-                                        <span><strong>Signal Processing Layer:</strong> Performs normalization,
-                                            temporal smoothing, and confidence-weighted fusion of multimodal
-                                            signals.</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="text-pubBlue mr-2">•</span>
-                                        <span><strong>Adaptation Logic Layer:</strong> Translates processed signals
-                                            into concrete adaptation decisions using rule-based and multi-factor
-                                            strategies.</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="text-pubBlue mr-2">•</span>
-                                        <span><strong>UI Integration Layer:</strong> Applies adaptations through
-                                            widget-level wrappers, preserving Flutter compatibility and declarative
-                                            UI principles.</span>
-                                    </li>
-                                </ul>
-                            </section>
-
-                            <!-- METHODOLOGY -->
-                            <section class="space-y-3">
-                                <h2 class="text-xl font-header text-darkGray border-l-4 border-pubBlue pl-3">
-                                    3. METHODOLOGY
-                                </h2>
-                                <p class="text-justify leading-relaxed text-darkGray/90">
-                                    Emotional input is modeled using lightweight on-device neural networks
-                                    targeting Ekman's six basic emotions. Raw frame-level predictions are
-                                    inherently noisy due to transient expressions and environmental variation.
-                                    To address this instability, Sentient UI employs Bayesian sequential
-                                    updating to aggregate predictions over time, producing temporally stable
-                                    emotion confidence estimates.
-                                </p>
-                                <p class="text-justify leading-relaxed text-darkGray/90">
-                                    Behavioral signals, including tap frequency and dwell time, as well as
-                                    contextual signals such as time of day and device state, complement
-                                    emotional input. These signals are normalized and fused using a
-                                    confidence-weighted strategy to guide adaptation decisions while avoiding
-                                    overreaction to transient events.
-                                </p>
-                            </section>
-
-                            <!-- PROOF OF CONCEPT -->
-                            <section class="space-y-3">
-                                <h2 class="text-xl font-header text-darkGray border-l-4 border-pubBlue pl-3">
-                                    4. PROOF-OF-CONCEPT DEMONSTRATION
-                                </h2>
-                                <p class="text-justify leading-relaxed text-darkGray/90">
-                                    A Flutter-based proof-of-concept implementation demonstrates Sentient UI's
-                                    ability to apply real-time visual adaptations under simulated emotional
-                                    states. The demonstration focuses on validating architectural flow,
-                                    adaptation triggering, and UI integration rather than production readiness.
-                                </p>
-                                <p class="text-justify leading-relaxed text-darkGray/90">
-                                    Visual adaptations include color scheme transitions, contrast adjustments,
-                                    and selective emphasis of interface elements, while maintaining consistent
-                                    layout structure and functional behavior across emotional states.
-                                </p>
-                            </section>
-
-                            <!-- CONTRIBUTIONS -->
-                            <section class="space-y-3">
-                                <h2 class="text-xl font-header text-darkGray border-l-4 border-pubBlue pl-3">
-                                    5. KEY CONTRIBUTIONS
-                                </h2>
-                                <ul class="space-y-2 ml-4">
-                                    <li class="flex items-start">
-                                        <span class="text-pubBlue mr-2">•</span>
-                                        <span>Design of a modular, Clean Architecture-based framework for adaptive
-                                            UIs</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="text-pubBlue mr-2">•</span>
-                                        <span>On-device emotion stabilization using Bayesian sequential updating</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="text-pubBlue mr-2">•</span>
-                                        <span>Widget-level adaptation via decorator-based integration in Flutter</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="text-pubBlue mr-2">•</span>
-                                        <span>Privacy-preserving design with no external data transmission</span>
-                                    </li>
-                                </ul>
-                            </section>
-
-                            <!-- FOOTER -->
-                            <div
-                                class="pt-8 border-t border-gray-200 text-center bg-gray-50 -mx-6 md:-mx-8 px-6 md:px-8 py-6 rounded-b-lg">
-                                <p class="text-sm text-midGray mb-6">
-                                    The complete paper includes detailed architectural diagrams, mathematical
-                                    formulation, and an extensive review of related work.
-                                </p>
-                                <button onclick="handlePaperDownload(event)"
-                                    class="glass-button text-softWhite px-8 py-3 rounded-full hover:scale-105 transition-transform duration-300 inline-flex items-center gap-2">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                                        </path>
-                                    </svg>
-                                    Download Full Paper (PDF)
-                                </button>
-                                <p class="text-xs text-midGray mt-4">
-                                    Last updated: December 2025
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Architecture Section -->
     <section id="architecture" class="py-24 bg-softWhite glass-overlay glass-border-top glass-border-bottom">
@@ -2403,23 +2171,7 @@
             });
         }
 
-        // Paper modal functions
-        function openPaperModal() {
-            const modal = document.getElementById('paperModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.classList.add('modal-open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePaperModal() {
-            const modal = document.getElementById('paperModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.classList.remove('modal-open');
-            document.body.style.overflow = 'auto';
-        }
-
+        // Paper modal functions (REMOVED) - no longer needed
         // Download functions
         function handleDownload() {
             const pubSection = document.getElementById('pub');
@@ -2432,25 +2184,7 @@
             }
         }
 
-        function handlePaperDownload(event) {
-            try {
-                if (event && event.stopPropagation) event.stopPropagation();
-            } catch (e) { }
-
-            var filePath = 'assets/Engineering_Sentient_UI__Bridging_Emotion__Behavior__and_Context_for_Dynamic_UI_Adaptation.pdf';
-
-            try {
-                window.open(filePath, '_blank', 'noopener');
-            } catch (err) {
-                var a = document.createElement('a');
-                a.href = filePath;
-                a.target = '_blank';
-                a.rel = 'noopener';
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-            }
-        }
+        // Removed handlePaperDownload (no longer used)
 
         function showNotification(message) {
             const notification = document.createElement('div');
